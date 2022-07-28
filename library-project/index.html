@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="./script.js" defer></script>
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="./script.js" defer></script>
+		<title>Library</title>
+	</head>
+	<body>
+		<div class="popup-box">
+			<div class="popup">
+				<div class="content">
+					<header>
+						<p></p>
+						<i class="uil uil-times">x</i>
+					</header>
+					<form action="#">
+						<div class="row title">
+							<label>Title</label>
+							<input type="text" spellcheck="false" class="book-title" />
+						</div>
+						<div class="row author">
+							<label>Author</label>
+							<input type="text" spellcheck="false" class="book-author" />
+						</div>
+						<div class="row pages">
+							<label>Pages</label>
+							<input type="number" spellcheck="false" class="num-of-pages" />
+						</div>
+						<div class="row read">
+							<label>Read?</label>
+							<input type="checkbox" spellcheck="false" class="is-read" />
+						</div>
+						<button></button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="wrapper">
+			<li class="add-box">
+				<p>Add new book</p>
+			</li>
+		</div>
+	</body>
 </html>
