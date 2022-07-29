@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(39, 35, 35);
+  gap: 100px;
+  color: white;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.container {
+  width: 500px;
+  height: 500px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+.container .cell {
+  font-size: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border: 1px solid rgb(148, 146, 146);
+}
+.container .cell:nth-of-type(1), .container .cell:nth-of-type(2), .container .cell:nth-of-type(3) {
+  border-top: none;
+}
+.container .cell:nth-of-type(3), .container .cell:nth-of-type(6), .container .cell:nth-of-type(9) {
+  border-right: none;
+}
+.container .cell:nth-of-type(7), .container .cell:nth-of-type(8), .container .cell:nth-of-type(9) {
+  border-bottom: none;
+}
+.container .cell:nth-of-type(1), .container .cell:nth-of-type(4), .container .cell:nth-of-type(7) {
+  border-left: none;
+}
+.container .cell:hover {
+  cursor: pointer;
+  background-color: rgba(49, 49, 49, 0.212);
+}
+
+.announcement {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.875);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+.announcement .message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.announcement .message h2 {
+  font-size: 4.5rem;
+}
+.announcement .message button {
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 10px;
+  border: none;
+}
+.announcement .message button:active {
+  background-color: rgb(166, 166, 166);
+}/*# sourceMappingURL=style.css.map */
