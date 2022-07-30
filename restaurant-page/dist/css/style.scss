@@ -4,12 +4,14 @@
 	box-sizing: border-box;
 	font-family: sans-serif;
 }
-$navbarHeight: 80px;
+:root {
+	--navbar-height: 80px;
+}
 nav {
 	position: fixed;
 	overflow: hidden;
 	width: 100%;
-	height: $navbarHeight;
+	height: var(--navbar-height);
 	background-color: rgba(18, 18, 18, 0.77);
 	display: flex;
 	justify-content: space-around;
@@ -34,7 +36,7 @@ section {
 	background-image: linear-gradient(45deg, rgb(137, 17, 17) 0%, rgb(137, 17, 17) 21%, rgb(190, 25, 25) 21%, rgb(190, 25, 25) 37%, rgb(255, 108, 2) 37%, rgb(255, 108, 2) 46%, rgb(255, 154, 0) 46%, rgb(255, 154, 0) 53%, rgb(24, 149, 34) 53%, rgb(24, 149, 34) 59%, rgb(97, 184, 24) 59%, rgb(97, 184, 24) 77%, rgb(40, 174, 141) 77%, rgb(40, 174, 141) 100%);
 	width: 100%;
 	min-height: 100vh;
-	padding-top: calc($navbarHeight + 30px);
+	padding-block: calc(var(--navbar-height) + 10px);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -42,6 +44,7 @@ section {
 	gap: 50px;
 	h1 {
 		font-size: 4rem;
+		text-align: center;
 		color: white;
 	}
 }
@@ -63,7 +66,7 @@ section {
 		box-shadow: 0px 0px 10px rgba(75, 75, 75, 0.549);
 		background-position: center;
 		background-size: cover;
-		span{
+		span {
 			color: white;
 			background-color: rgba(7, 7, 7, 0.264);
 			width: 100%;
@@ -113,5 +116,22 @@ form {
 			cursor: pointer;
 			background-color: rgba(255, 255, 255, 0.914);
 		}
+	}
+}
+@media (max-width: 420px) {
+	:root {
+		--navbar-height: 60px;
+	}
+	section h1 {
+		font-size: 3rem;
+	}
+
+	nav button {
+		padding-inline: 0px !important;
+		width: 33%;
+	}
+
+	form button {
+		width: 100%;
 	}
 }
