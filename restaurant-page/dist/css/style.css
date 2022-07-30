@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+:root {
+  --navbar-height: 80px;
+}
+
+nav {
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  height: var(--navbar-height);
+  background-color: rgba(18, 18, 18, 0.77);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+nav button {
+  display: flex;
+  border: none;
+  background-color: rgba(18, 18, 18, 0);
+  color: white;
+  font-size: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding-inline: 30px;
+}
+nav button:hover {
+  background-color: rgba(0, 0, 0, 0.374);
+  cursor: pointer;
+}
+
+section {
+  background-image: linear-gradient(45deg, rgb(137, 17, 17) 0%, rgb(137, 17, 17) 21%, rgb(190, 25, 25) 21%, rgb(190, 25, 25) 37%, rgb(255, 108, 2) 37%, rgb(255, 108, 2) 46%, rgb(255, 154, 0) 46%, rgb(255, 154, 0) 53%, rgb(24, 149, 34) 53%, rgb(24, 149, 34) 59%, rgb(97, 184, 24) 59%, rgb(97, 184, 24) 77%, rgb(40, 174, 141) 77%, rgb(40, 174, 141) 100%);
+  width: 100%;
+  min-height: 100vh;
+  padding-block: calc(var(--navbar-height) + 10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+}
+section h1 {
+  font-size: 4rem;
+  text-align: center;
+  color: white;
+}
+
+.container {
+  margin-top: 20px;
+  overflow: hidden;
+  width: min(100% - 1rem, 1200px);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.container .food-card {
+  border: 3px solid wheat;
+  background-color: rgba(255, 255, 255, 0.618);
+  height: 300px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 10px rgba(75, 75, 75, 0.549);
+  background-position: center;
+  background-size: cover;
+}
+.container .food-card span {
+  color: white;
+  background-color: rgba(7, 7, 7, 0.264);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  text-shadow: 0px 0px 10px rgb(0, 0, 0);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: min(100% - 1rem, 800px);
+  align-items: flex-start;
+}
+form input,
+form textarea {
+  border: none;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.605);
+  padding: 10px;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+form input:focus,
+form textarea:focus {
+  background-color: rgba(255, 255, 255, 0.914);
+  outline: none;
+}
+form textarea {
+  height: 250px;
+  resize: none;
+}
+form button {
+  border: none;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  background-color: rgba(255, 255, 255, 0.605);
+  border-radius: 3px;
+}
+form button:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.914);
+}
+
+@media (max-width: 420px) {
+  :root {
+    --navbar-height: 60px;
+  }
+  section h1 {
+    font-size: 3rem;
+  }
+  nav button {
+    padding-inline: 0px !important;
+    width: 33%;
+  }
+  form button {
+    width: 100%;
+  }
+}/*# sourceMappingURL=style.css.map */
