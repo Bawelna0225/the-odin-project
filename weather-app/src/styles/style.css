@@ -1,1 +1,110 @@
-/*# sourceMappingURL=style.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+svg {
+  width: 45px;
+  fill: black;
+}
+
+.center-flex, .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  justify-content: space-between;
+  padding: 20px;
+}
+.container .location {
+  display: flex;
+  gap: 10px;
+  font-size: 2rem;
+}
+.container .weather-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.container .weather-box .weather,
+.container .weather-box .temp,
+.container .weather-box .feels-like,
+.container .weather-box .humidity,
+.container .weather-box .chance-of-rain,
+.container .weather-box .wind {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  font-size: 0.9rem;
+}
+.container .weather-box .weather .info,
+.container .weather-box .temp .info,
+.container .weather-box .feels-like .info,
+.container .weather-box .humidity .info,
+.container .weather-box .chance-of-rain .info,
+.container .weather-box .wind .info {
+  flex-direction: column;
+}
+.container .weather-box .weather span,
+.container .weather-box .temp span,
+.container .weather-box .feels-like span,
+.container .weather-box .humidity span,
+.container .weather-box .chance-of-rain span,
+.container .weather-box .wind span {
+  font-size: 1.4rem;
+}
+.container .weather-box .weather {
+  text-transform: capitalize;
+}
+.container .weather-box .bottom-box {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+.container .heading {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container .heading .welcome {
+  font-size: 3rem;
+}
+.container .heading .date {
+  font-size: 1.5rem;
+}
+.container .heading #city-input {
+  width: 300px;
+  padding: 10px;
+}
+
+.snackbar {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  min-width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  opacity: 0;
+  transition: 300ms linear;
+}
+.snackbar.active {
+  opacity: 1;
+  top: 100px;
+}
+.snackbar.error {
+  color: red;
+  background-color: rgba(250, 0, 0, 0.1);
+}/*# sourceMappingURL=style.css.map */
