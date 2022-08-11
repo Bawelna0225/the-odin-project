@@ -1,5 +1,11 @@
 import { ICONS } from "./icons"
 
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelector('.preloader').classList.add('finished')
+  }, 1500);
+});
+
 const cityInput = document.querySelector('#city-input'),
 	welcomeText = document.querySelector('.welcome'),
 	tempBox = document.querySelector('.temp .info span'),
@@ -10,7 +16,8 @@ const cityInput = document.querySelector('#city-input'),
 	snackBar = document.querySelector('.snackbar'),
 	feelsLike = document.querySelector('.feels-like span'),
 	humidityBox = document.querySelector('.humidity span'),
-	windSpeed = document.querySelector('.wind span')
+	windSpeed = document.querySelector('.wind span'),
+	airPressure = document.querySelector('.pressure span')
 
 let api
 
@@ -48,7 +55,7 @@ const weatherDetails = (result) => {
 		const city = result.name,
 			country = result.sys.country
 		const { description, id, main } = result.weather[0]
-		const { temp, feels_like, humidity } = result.main
+		const { temp, feels_like, humidity, pressure } = result.main
 		const { speed } = result.wind
  
         let icon
@@ -58,7 +65,7 @@ const weatherDetails = (result) => {
 				icon = ICONS.Thunderstorm
 				break
 			case 'Drizzle':
-				icon = ICONS.Drizzle
+				icon = ICONS.Rain
 				break
 			case 'Rain':
 				icon = ICONS.Rain
@@ -82,11 +89,12 @@ const weatherDetails = (result) => {
 
 		tempBox.innerHTML = `${Math.floor(temp)}ºC`
 		weatherDesc.innerHTML = `${icon}<div class="info"><p>Weather</p><span>${description}</span></div>`
-		cityBox.innerHTML = city
+		cityBox.innerHTML = `<span class='location-pin'>${ICONS.Location}</span> ${city},`
 		countryBox.innerHTML = country
 		feelsLike.innerHTML = `${Math.floor(feels_like)}ºC`
 		humidityBox.innerHTML = humidity
 		windSpeed.innerHTML = `${speed} km/h`
+		airPressure.innerHTML = `${pressure} hPa`
 	}
 }
 
