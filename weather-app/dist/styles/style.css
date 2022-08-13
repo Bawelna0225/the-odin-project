@@ -250,9 +250,11 @@ input::placeholder {
     width: 40px;
   }
   .container {
+    padding: 20px;
     min-height: 100vh;
     gap: 30px;
     flex-direction: column;
+    justify-content: center;
   }
   .container .heading .welcome {
     font-size: 2rem;
@@ -267,7 +269,7 @@ input::placeholder {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.4rem;
+    font-size: 2rem;
   }
   .container .heading .location .city {
     display: flex;
@@ -276,7 +278,7 @@ input::placeholder {
     gap: 10px;
   }
   .container .heading .location .city .location-pin svg {
-    width: 15px !important;
+    width: 20px !important;
   }
 }
 @-webkit-keyframes rotate-left {
