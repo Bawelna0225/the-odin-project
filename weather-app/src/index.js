@@ -1,10 +1,10 @@
-import { ICONS } from "./icons"
+import { ICONS } from './icons'
 
 window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.querySelector('.preloader').classList.add('finished')
-  }, 1500);
-});
+	setTimeout(() => {
+		document.querySelector('.preloader').classList.add('finished')
+	}, 1500)
+})
 
 const cityInput = document.querySelector('#city-input'),
 	welcomeText = document.querySelector('.welcome'),
@@ -57,8 +57,8 @@ const weatherDetails = (result) => {
 		const { description, id, main } = result.weather[0]
 		const { temp, feels_like, humidity, pressure } = result.main
 		const { speed } = result.wind
- 
-        let icon
+
+		let icon
 
 		switch (main) {
 			case 'Thunderstorm':
