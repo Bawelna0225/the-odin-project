@@ -1,1 +1,105 @@
-/*# sourceMappingURL=style.css.map */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+}
+
+body {
+  background-image: linear-gradient(90deg, rgb(168, 86, 201) 0%, rgb(168, 86, 201) 3%, rgb(140, 74, 173) 3%, rgb(140, 74, 173) 11%, rgb(112, 61, 145) 11%, rgb(112, 61, 145) 20%, rgb(85, 49, 118) 20%, rgb(85, 49, 118) 49%, rgb(57, 37, 90) 49%, rgb(57, 37, 90) 71%, rgb(29, 24, 62) 71%, rgb(29, 24, 62) 72%, rgb(1, 12, 34) 72%, rgb(1, 12, 34) 100%), linear-gradient(67.5deg, rgb(168, 86, 201) 0%, rgb(168, 86, 201) 3%, rgb(140, 74, 173) 3%, rgb(140, 74, 173) 11%, rgb(112, 61, 145) 11%, rgb(112, 61, 145) 20%, rgb(85, 49, 118) 20%, rgb(85, 49, 118) 49%, rgb(57, 37, 90) 49%, rgb(57, 37, 90) 71%, rgb(29, 24, 62) 71%, rgb(29, 24, 62) 72%, rgb(1, 12, 34) 72%, rgb(1, 12, 34) 100%), linear-gradient(112.5deg, rgb(168, 86, 201) 0%, rgb(168, 86, 201) 3%, rgb(140, 74, 173) 3%, rgb(140, 74, 173) 11%, rgb(112, 61, 145) 11%, rgb(112, 61, 145) 20%, rgb(85, 49, 118) 20%, rgb(85, 49, 118) 49%, rgb(57, 37, 90) 49%, rgb(57, 37, 90) 71%, rgb(29, 24, 62) 71%, rgb(29, 24, 62) 72%, rgb(1, 12, 34) 72%, rgb(1, 12, 34) 100%), linear-gradient(45deg, rgb(168, 86, 201) 0%, rgb(168, 86, 201) 3%, rgb(140, 74, 173) 3%, rgb(140, 74, 173) 11%, rgb(112, 61, 145) 11%, rgb(112, 61, 145) 20%, rgb(85, 49, 118) 20%, rgb(85, 49, 118) 49%, rgb(57, 37, 90) 49%, rgb(57, 37, 90) 71%, rgb(29, 24, 62) 71%, rgb(29, 24, 62) 72%, rgb(1, 12, 34) 72%, rgb(1, 12, 34) 100%), linear-gradient(90deg, rgb(95, 3, 74), rgb(35, 65, 96));
+  background-blend-mode: overlay, overlay, overlay, overlay, normal;
+}
+
+.navbar {
+  height: 80px;
+  background-color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 20px;
+}
+.navbar .logo {
+  font-size: 2rem;
+  padding-inline: 5px;
+  letter-spacing: 5px;
+  border-left: 5px solid blue;
+}
+.navbar input {
+  background-color: rgb(20, 20, 20);
+  border: 2px solid blue;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.content {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  background-color: rgba(10, 10, 10, 0.95);
+  color: #ddd;
+}
+.sidebar ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+.sidebar ul li {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+.sidebar ul li.active {
+  border-left: 2px solid blue;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.sidebar ul li:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+  cursor: pointer;
+}
+
+main {
+  width: calc(100% - 200px);
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+main .cards {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(350px, 1fr));
+  gap: 20px;
+  justify-content: flex-start;
+  overflow: auto;
+  height: 22%;
+}
+main .cards .card {
+  height: 240px;
+  padding: 20px;
+  background-color: rgba(15, 15, 15, 0.85);
+  border-radius: 8px;
+}
+main .list {
+  margin: 20px;
+}
+main .list ul {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+main .list ul li {
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-bottom: 2px solid blue;
+}/*# sourceMappingURL=style.css.map */
