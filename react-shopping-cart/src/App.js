@@ -14,25 +14,25 @@ function App() {
 	const [cart, setCart] = useState([])
 	const [amountInCart, setAmountInCart] = useState(0)
 	const handleAddToCart = (id, name, price, img, activeSize, activeColor) => {
-		console.log(cart)
 		let isInCart = false
 		if (cart.length > 0)
-			cart.forEach((item) => {
-				if (item.size === activeSize && item.productId === id && item.color === activeColor) {
-					item.quantity += 1
-					setAmountInCart(amountInCart + 1)
-					isInCart = true
-				}
-			})
+		cart.forEach((item) => {
+			if (item.size === activeSize && item.productId === id && item.color === activeColor) {
+				item.quantity += 1
+				setAmountInCart(amountInCart + 1)
+				isInCart = true
+			}
+		})
 		if (!isInCart) {
 			setCart([...cart, { productId: id, name: name, price: price, img: img, size: activeSize, color: activeColor, quantity: 1 }])
 			setAmountInCart(amountInCart + 1)
 		}
+		console.log(amountInCart)
 	}
 	return (
 		<div className="App">
 			<BrowserRouter history={history}>
-				<Navbar />
+				<Navbar data={amountInCart}/>
 				<Routes>
 					<Route path="/">
 						<Route index element={<Home />} />

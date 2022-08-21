@@ -25,6 +25,21 @@ nav {
 			background-color: #fff;
 			border: 1px solid rgb(121, 121, 121);
 			border-radius: 2px;
+			position: relative;
+			span{
+				background-color: red;
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				top: -10px;
+				right: -10px;
+				border-radius: 50%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: white;	
+				font-size: 0.7rem;			
+			}
 		}
 	}
 	.selectCurrency {

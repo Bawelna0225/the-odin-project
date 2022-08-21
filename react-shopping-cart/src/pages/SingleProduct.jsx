@@ -34,6 +34,7 @@ const SingleProduct = ({ handleAddToCart }) => {
 	}
 	return (
 		<section>
+			<button className='goBackBtn'>Back To Products</button>
 			<div className="single-product-wrapper">
 				<div className="product-image">
 					<img src={img} alt="" />
