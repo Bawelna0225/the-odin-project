@@ -16,7 +16,7 @@ function reducer(state, action) {
 	}
 }
 
-export const Navbar = () => {
+export const Navbar = ({ data }) => {
 	const currencies = [
 		{ id: 1, currency: '$' },
 		{ id: 2, currency: '£' },
@@ -64,7 +64,10 @@ export const Navbar = () => {
 							</div>
 						))}
 				</div>
-				<button onClick={handleOpenCart}>Cart</button>
+				<button onClick={handleOpenCart}>
+					Cart
+					{data > 0 && <span>{data}</span>}
+				</button>
 				{isCartOpen && (
 					<div className="cart">
 						<button>
