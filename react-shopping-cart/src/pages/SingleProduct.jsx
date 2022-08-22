@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 
-const SingleProduct = ({ handleAddToCart }) => {
+const SingleProduct = ({ handleAddToCart, currency }) => {
 	const location = useLocation()
 	const {
-		item: { id, name, price, img },
+		item: { id, name, price, img, sizes, colors },
 	} = location.state
-	let [activeSize, setActiveSize] = useState('XS')
-	let [activeColor, setActiveColor] = useState('red')
-	const activeCurrency = localStorage.getItem('active-currency')
+	const [activeSize, setActiveSize] = useState('XS')
+	const [activeColor, setActiveColor] = useState('')
 	let cost, currencyIcon
-	switch (activeCurrency) {
+	switch (currency) {
 		case '£':
 			cost = Math.round(price * 0.85 * 100) / 100
 			currencyIcon = '£'
@@ -24,17 +23,18 @@ const SingleProduct = ({ handleAddToCart }) => {
 			currencyIcon = '$'
 			break
 	}
-	const sizes = ['XS', 'S', 'M', 'L', 'XL']
-	const colors = ['red', 'blue', 'green', 'orange']
+
 	const handleChangeChosenSize = (e) => {
-		setActiveSize((activeSize = e.target.value))
+		setActiveSize(e.target.value)
 	}
 	const handleChangeChosenColor = (e) => {
-		setActiveColor((activeColor = e.target.value))
+		setActiveColor(e.target.value)
 	}
 	return (
 		<section>
-			<button className='goBackBtn'>Back To Products</button>
+			<button className="goBackBtn">
+				<Link to="/products">Go Back</Link>
+			</button>
 			<div className="single-product-wrapper">
 				<div className="product-image">
 					<img src={img} alt="" />
