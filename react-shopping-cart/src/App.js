@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import { Cart } from './pages/Cart'
 import { Products } from './pages/Products'
 import Product from './pages/components/Product'
+import useCurrency from './pages/hooks/useCurrency'
 import { Navbar } from './pages/components/Navbar'
 import SingleProduct from './pages/SingleProduct'
 import { createBrowserHistory } from 'history'
@@ -13,6 +14,11 @@ const history = createBrowserHistory()
 function App() {
 	const [cart, setCart] = useState([])
 	const [amountInCart, setAmountInCart] = useState(0)
+	const [currency, setCurrency] = useState('$')
+	useCurrency(currency)
+	const handleChangeCurrency = (currency) => {
+		setCurrency(currency)
+	}
 	const handleAddToCart = (id, name, price, img, activeSize, activeColor) => {
 		let isInCart = false
 		if (cart.length > 0)
@@ -31,13 +37,13 @@ function App() {
 	return (
 		<div className="App">
 			<BrowserRouter history={history}>
-				<Navbar cartQuantity={amountInCart} itemsInCart={cart}/>
+				<Navbar cartQuantity={amountInCart} itemsInCart={cart} handleChangeCurrency={handleChangeCurrency} currency={currency}/>
 				<Routes>
 					<Route path="/">
 						<Route index element={<Home />} />
 						<Route path="products">
-							<Route index element={<Products />} />
-							<Route path=":productId" element={<SingleProduct handleAddToCart={handleAddToCart} />} />
+							<Route index element={<Products currency={currency}/>} />
+							<Route path=":productId" element={<SingleProduct currency={currency} handleAddToCart={handleAddToCart} />} />
 						</Route>
 						<Route path="cart" element={<Cart />} />
 					</Route>

@@ -1,18 +1,18 @@
-import { Link, NavLink } from 'react-router-dom'
-
 const Product = ({ ...data }) => {
-	const activeCurrency = localStorage.getItem('active-currency')
-	let kurs
-	switch (activeCurrency) {
+	let currency = data.currency.currency
+	let icon, kurs
+	switch (currency) {
 		case '£':
-			kurs = Math.round((data.price * 0.85) * 100) / 100
+			kurs = Math.round(data.price * 0.85 * 100) / 100
+			icon = '£'
 			break
 		case '€':
-			kurs = Math.round((data.price * 0.99) * 100) / 100
-			
+			kurs = Math.round(data.price * 0.99 * 100) / 100
+			icon = '€'
 			break
 		default:
 			kurs = data.price
+			icon = '$'
 			break
 	}
 	return (
@@ -21,7 +21,7 @@ const Product = ({ ...data }) => {
 			<div className="description">
 				<h1>{data.name}</h1>
 				<h3>
-					{activeCurrency} {kurs}
+					{icon} {kurs}
 				</h3>
 			</div>
 		</div>

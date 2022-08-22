@@ -48,6 +48,7 @@ nav .right-nav button span {
 nav .selectCurrency {
   position: absolute;
   top: 60px;
+  right: 100px;
   background-color: #fff;
   width: 50px;
   box-shadow: 0px 0px 10px rgba(37, 37, 37, 0.202);
@@ -196,12 +197,23 @@ section {
   color: white;
 }
 .single-product-wrapper .right-panel .colors button {
-  border: 1px solid black;
-  opacity: 0.8;
+  transition: 300ms linear;
+  position: relative;
+  overflow: hidden;
 }
 .single-product-wrapper .right-panel .colors button.active {
-  border: 2px solid black !important;
   opacity: 1;
+}
+.single-product-wrapper .right-panel .colors button.active::before {
+  top: 0;
+  right: 0;
+  position: absolute;
+  content: "";
+  width: 50%;
+  height: 50%;
+  background-color: rgb(38, 255, 0);
+  border: 1px solid #000;
+  transform: rotate(-45deg) translate(50%, 50%);
 }
 .single-product-wrapper .right-panel .colors .red {
   background-color: red;
