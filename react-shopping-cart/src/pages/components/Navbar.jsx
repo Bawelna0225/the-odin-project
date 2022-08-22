@@ -16,7 +16,7 @@ function reducer(state, action) {
 	}
 }
 
-export const Navbar = ({ data }) => {
+export const Navbar = ({ cartQuantity, itemsInCart }) => {
 	const currencies = [
 		{ id: 1, currency: '$' },
 		{ id: 2, currency: '£' },
@@ -66,13 +66,36 @@ export const Navbar = ({ data }) => {
 				</div>
 				<button onClick={handleOpenCart}>
 					Cart
-					{data > 0 && <span>{data}</span>}
+					{cartQuantity > 0 && <span>{cartQuantity}</span>}
 				</button>
 				{isCartOpen && (
 					<div className="cart">
-						<button>
+						{itemsInCart.map((item) => {
+							return (
+								<div className="item-in-cart">
+									<img src={item.img} alt="" />
+									<div className="info">
+										<div className="top">
+											<p>{item.name}</p>
+											<p className="price">$ {item.price}</p>
+										</div>
+										<div className="bottom">
+											<span>{item.size}</span>
+											<span>{item.color}</span>
+											<div className="controls">
+												<button>-</button>
+												<span>{item.quantity}</span>
+												<button>+</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							)
+						})}
+						
+						<button className='checkout'>
 							<NavLink activeclassname="active" to="/cart">
-								Cart
+								Go to Checkout
 							</NavLink>
 						</button>
 					</div>

@@ -27,12 +27,11 @@ function App() {
 			setCart([...cart, { productId: id, name: name, price: price, img: img, size: activeSize, color: activeColor, quantity: 1 }])
 			setAmountInCart(amountInCart + 1)
 		}
-		console.log(amountInCart)
 	}
 	return (
 		<div className="App">
 			<BrowserRouter history={history}>
-				<Navbar data={amountInCart}/>
+				<Navbar cartQuantity={amountInCart} itemsInCart={cart}/>
 				<Routes>
 					<Route path="/">
 						<Route index element={<Home />} />
