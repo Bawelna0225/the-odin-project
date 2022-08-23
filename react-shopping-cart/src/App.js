@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import React, { useState } from 'react'
 import Home from './pages/Home'
+import { items } from './pages/data'
 import { Cart } from './pages/Cart'
 import { Products } from './pages/Products'
 import Product from './pages/components/Product'
@@ -13,6 +14,7 @@ import NotFound from './pages/NotFound'
 const history = createBrowserHistory()
 
 function App() {
+	let cost
 	const [cart, setCart] = useState([])
 	const [amountInCart, setAmountInCart] = useState(0)
 	const [currency, setCurrency] = useState('$')
@@ -20,16 +22,27 @@ function App() {
 	const handleChangeCurrency = (currency) => {
 		setCurrency(currency)
 	}
+	// switch (currency) {
+	// 	case '£':
+	// 		cost = Math.round(items.price * 0.85 * 100) / 100
+	// 		break
+	// 	case '€':
+	// 		cost = Math.round(items.price * 0.99 * 100) / 100
+	// 		break
+	// 	default:
+	// 		cost = items.price
+	// 		break
+	// }
 	const handleAddToCart = (id, name, price, img, activeSize, activeColor) => {
 		let isInCart = false
 		if (cart.length > 0)
-		cart.forEach((item) => {
-			if (item.size === activeSize && item.productId === id && item.color === activeColor) {
-				item.quantity += 1
-				setAmountInCart(amountInCart + 1)
-				isInCart = true
-			}
-		})
+			cart.forEach((item) => {
+				if (item.size === activeSize && item.productId === id && item.color === activeColor) {
+					item.quantity += 1
+					setAmountInCart(amountInCart + 1)
+					isInCart = true
+				}
+			})
 		if (!isInCart) {
 			setCart([...cart, { productId: id, name: name, price: price, img: img, size: activeSize, color: activeColor, quantity: 1 }])
 			setAmountInCart(amountInCart + 1)
@@ -38,12 +51,12 @@ function App() {
 	return (
 		<div className="App">
 			<BrowserRouter history={history}>
-				<Navbar cartQuantity={amountInCart} itemsInCart={cart} handleChangeCurrency={handleChangeCurrency} currency={currency}/>
+				<Navbar cartQuantity={amountInCart} itemsInCart={cart}  handleChangeCurrency={handleChangeCurrency} currency={currency} />
 				<Routes>
 					<Route path="/">
 						<Route index element={<Home />} />
 						<Route path="products">
-							<Route index element={<Products currency={currency}/>} />
+							<Route index element={<Products currency={currency}   />} />
 							<Route path=":productId" element={<SingleProduct currency={currency} handleAddToCart={handleAddToCart} />} />
 						</Route>
 						<Route path="cart" element={<Cart />} />

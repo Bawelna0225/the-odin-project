@@ -9,6 +9,7 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 		{ id: 2, currency: '£' },
 		{ id: 3, currency: '€' },
 	]
+
 	const [isCurrencyMenuOpen, setMenuCurrencyMenuOpen] = useState(false)
 	const [isCartOpen, setCartOpen] = useState(false)
 
@@ -56,6 +57,18 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 				{isCartOpen && (
 					<div className="cart">
 						{itemsInCart.map((item) => {
+							let displayedPrice
+							switch (currency) {
+								case '£':
+									displayedPrice = Math.round(item.price * 0.85 * 100) / 100
+									break
+								case '€':
+									displayedPrice = Math.round(item.price * 0.99 * 100) / 100
+									break
+								default:
+									displayedPrice = item.price
+									break
+							}
 							return (
 								<div className="item-in-cart">
 									<img src={item.img} alt="" />
@@ -63,12 +76,12 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 										<div className="top">
 											<p>{item.name}</p>
 											<p className="price">
-												{currency} {item.price}
+												{currency} {displayedPrice}
 											</p>
 										</div>
 										<div className="bottom">
 											<span>{item.size}</span>
-											<span style={{backgroundColor: item.color, width: '15px', height: '15px'}}></span>
+											<span style={{ backgroundColor: item.color, width: '15px', height: '15px' }}></span>
 											<div className="controls">
 												<button>-</button>
 												<span>{item.quantity}</span>

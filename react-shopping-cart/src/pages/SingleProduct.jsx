@@ -8,19 +8,16 @@ const SingleProduct = ({ handleAddToCart, currency }) => {
 	} = location.state
 	const [activeSize, setActiveSize] = useState(sizes[0])
 	const [activeColor, setActiveColor] = useState(colors[0])
-	let cost, currencyIcon
+	let displayedPrice
 	switch (currency) {
 		case '£':
-			cost = Math.round(price * 0.85 * 100) / 100
-			currencyIcon = '£'
+			displayedPrice = Math.round(price * 0.85 * 100) / 100
 			break
 		case '€':
-			cost = Math.round(price * 0.99 * 100) / 100
-			currencyIcon = '€'
+			displayedPrice = Math.round(price * 0.99 * 100) / 100
 			break
 		default:
-			cost = price
-			currencyIcon = '$'
+			displayedPrice = price
 			break
 	}
 
@@ -42,7 +39,7 @@ const SingleProduct = ({ handleAddToCart, currency }) => {
 				<div className="right-panel">
 					<h2>{name}</h2>
 					<h4>
-						Price: {currencyIcon} {cost}
+						Price: {currency} {displayedPrice}
 					</h4>
 					<div className="sizes">
 						{sizes.map((button) => (
@@ -59,7 +56,7 @@ const SingleProduct = ({ handleAddToCart, currency }) => {
 					<button
 						onClick={(btn) => {
 							btn.preventDefault()
-							handleAddToCart(id, name, cost, img, activeSize, activeColor)
+							handleAddToCart(id, name, price, img, activeSize, activeColor)
 						}}
 					>
 						Add To Cart

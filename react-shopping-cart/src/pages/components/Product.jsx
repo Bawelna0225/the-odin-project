@@ -1,18 +1,16 @@
 const Product = ({ ...data }) => {
 	let currency = data.currency.currency
-	let icon, kurs
+
+	let displayedPrice
 	switch (currency) {
 		case '£':
-			kurs = Math.round(data.price * 0.85 * 100) / 100
-			icon = '£'
+			displayedPrice = Math.round(data.price * 0.85 * 100) / 100
 			break
 		case '€':
-			kurs = Math.round(data.price * 0.99 * 100) / 100
-			icon = '€'
+			displayedPrice = Math.round(data.price * 0.99 * 100) / 100
 			break
 		default:
-			kurs = data.price
-			icon = '$'
+			displayedPrice = data.price
 			break
 	}
 	return (
@@ -21,7 +19,7 @@ const Product = ({ ...data }) => {
 			<div className="description">
 				<h1>{data.name}</h1>
 				<h3>
-					{icon} {kurs}
+					{currency} {displayedPrice}
 				</h3>
 			</div>
 		</div>
