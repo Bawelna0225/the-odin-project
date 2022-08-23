@@ -3,7 +3,6 @@ import { Link, NavLink } from 'react-router-dom'
 import Product from './components/Product'
 import { items } from './data'
 export const Products = (currency) => {
-	// console.log(currency);
 	return (
 		<div>
 			<div className="container">

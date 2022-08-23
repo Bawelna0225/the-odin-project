@@ -8,6 +8,7 @@ import useCurrency from './pages/hooks/useCurrency'
 import { Navbar } from './pages/components/Navbar'
 import SingleProduct from './pages/SingleProduct'
 import { createBrowserHistory } from 'history'
+import NotFound from './pages/NotFound'
 
 const history = createBrowserHistory()
 
@@ -47,7 +48,7 @@ function App() {
 						</Route>
 						<Route path="cart" element={<Cart />} />
 					</Route>
-					<Route path="*" element={<Home />}></Route>
+					<Route path="*" element={<NotFound />}></Route>
 				</Routes>
 			</BrowserRouter>
 		</div>

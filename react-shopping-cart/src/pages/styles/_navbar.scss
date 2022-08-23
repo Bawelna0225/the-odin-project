@@ -21,18 +21,23 @@ nav {
 		justify-content: center;
 		align-items: center;
 		button {
-			padding: 8px;
+			padding: 4px;
 			background-color: #fff;
 			border: 1px solid rgb(121, 121, 121);
 			border-radius: 2px;
 			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 1.2rem;
+			gap: 6px;
 			span {
-				background-color: red;
+				background-color: rgb(45, 179, 21);
 				position: absolute;
-				width: 20px;
-				height: 20px;
-				top: -10px;
-				right: -10px;
+				width: 18px;
+				height: 18px;
+				top: -8px;
+				right: -8px;
 				border-radius: 50%;
 				display: flex;
 				justify-content: center;
@@ -41,11 +46,16 @@ nav {
 				font-size: 0.7rem;
 			}
 		}
+		.cartBtn {
+			background-color: rgba(140, 33, 33, 0);
+			border: none;
+			padding: 0;
+		}
 	}
 	.selectCurrency {
 		position: absolute;
 		top: 60px;
-		right: 100px;
+		right: 80px;
 		background-color: #fff;
 		width: 50px;
 		box-shadow: 0px 0px 10px rgba(37, 37, 37, 0.202);
@@ -72,6 +82,9 @@ nav {
 		padding-block: 20px;
 		gap: 10px;
 		flex-direction: column;
+		p {
+			place-self: center;
+		}
 		.item-in-cart {
 			width: 100%;
 			display: flex;

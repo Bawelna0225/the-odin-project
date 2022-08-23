@@ -24,20 +24,25 @@ nav .right-nav {
 }
 nav .left-nav button,
 nav .right-nav button {
-  padding: 8px;
+  padding: 4px;
   background-color: #fff;
   border: 1px solid rgb(121, 121, 121);
   border-radius: 2px;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  gap: 6px;
 }
 nav .left-nav button span,
 nav .right-nav button span {
-  background-color: red;
+  background-color: rgb(45, 179, 21);
   position: absolute;
-  width: 20px;
-  height: 20px;
-  top: -10px;
-  right: -10px;
+  width: 18px;
+  height: 18px;
+  top: -8px;
+  right: -8px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -45,10 +50,16 @@ nav .right-nav button span {
   color: white;
   font-size: 0.7rem;
 }
+nav .left-nav .cartBtn,
+nav .right-nav .cartBtn {
+  background-color: rgba(140, 33, 33, 0);
+  border: none;
+  padding: 0;
+}
 nav .selectCurrency {
   position: absolute;
   top: 60px;
-  right: 100px;
+  right: 80px;
   background-color: #fff;
   width: 50px;
   box-shadow: 0px 0px 10px rgba(37, 37, 37, 0.202);
@@ -75,6 +86,9 @@ nav .cart {
   padding-block: 20px;
   gap: 10px;
   flex-direction: column;
+}
+nav .cart p {
+  place-self: center;
 }
 nav .cart .item-in-cart {
   width: 100%;
@@ -211,8 +225,8 @@ section {
   content: "";
   width: 50%;
   height: 50%;
-  background-color: rgb(38, 255, 0);
-  border: 1px solid #000;
+  background-color: rgba(12, 12, 12, 0.662);
+  border: 1px solid rgb(255, 255, 255);
   transform: rotate(-45deg) translate(50%, 50%);
 }
 .single-product-wrapper .right-panel .colors .red {

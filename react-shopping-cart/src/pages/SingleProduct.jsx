@@ -6,8 +6,8 @@ const SingleProduct = ({ handleAddToCart, currency }) => {
 	const {
 		item: { id, name, price, img, sizes, colors },
 	} = location.state
-	const [activeSize, setActiveSize] = useState('XS')
-	const [activeColor, setActiveColor] = useState('')
+	const [activeSize, setActiveSize] = useState(sizes[0])
+	const [activeColor, setActiveColor] = useState(colors[0])
 	let cost, currencyIcon
 	switch (currency) {
 		case '£':

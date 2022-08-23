@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import React, { useState } from 'react'
+import { BsCart3 } from 'react-icons/bs'
+import { MdExpandMore } from 'react-icons/md'
 
 export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, currency }) => {
 	const currencies = [
@@ -18,7 +20,6 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 		setCartOpen(!isCartOpen)
 		setMenuCurrencyMenuOpen(false)
 	}
-	// const activeCurrency = localStorage.getItem('active-currency')
 	return (
 		<nav>
 			<div className="left-nav">
@@ -30,7 +31,9 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 				</NavLink>
 			</div>
 			<div className="right-nav">
-				<button onClick={handleOpenCurrency}>{currency} ▼</button>
+				<button onClick={handleOpenCurrency}>
+					{currency} <MdExpandMore style={{ fontSize: '1.4rem' }} />
+				</button>
 				<div className="selectCurrency">
 					{isCurrencyMenuOpen &&
 						currencies.map(({ id, currency }) => (
@@ -46,8 +49,8 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 							</div>
 						))}
 				</div>
-				<button onClick={handleOpenCart}>
-					Cart
+				<button className="cartBtn" onClick={handleOpenCart}>
+					<BsCart3 style={{ fontSize: '1.4rem' }} />
 					{cartQuantity > 0 && <span>{cartQuantity}</span>}
 				</button>
 				{isCartOpen && (
@@ -65,7 +68,7 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 										</div>
 										<div className="bottom">
 											<span>{item.size}</span>
-											<span>{item.color}</span>
+											<span style={{backgroundColor: item.color, width: '15px', height: '15px'}}></span>
 											<div className="controls">
 												<button>-</button>
 												<span>{item.quantity}</span>
@@ -76,12 +79,15 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 								</div>
 							)
 						})}
-
-						<button className="checkout">
-							<NavLink activeclassname="active" to="/cart">
-								Go to Checkout
-							</NavLink>
-						</button>
+						{itemsInCart.length > 0 ? (
+							<button className="checkout">
+								<NavLink activeclassname="active" to="/cart">
+									Go to Checkout
+								</NavLink>
+							</button>
+						) : (
+							<p>Your Cart is Empty</p>
+						)}
 					</div>
 				)}
 			</div>
