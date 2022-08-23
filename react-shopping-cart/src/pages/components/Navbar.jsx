@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BsCart3 } from 'react-icons/bs'
 import { MdExpandMore } from 'react-icons/md'
 
@@ -9,9 +9,15 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 		{ id: 2, currency: '£' },
 		{ id: 3, currency: '€' },
 	]
-
 	const [isCurrencyMenuOpen, setMenuCurrencyMenuOpen] = useState(false)
 	const [isCartOpen, setCartOpen] = useState(false)
+	const [total, setTotal] = useState(0)
+	let displayedTotal
+	useEffect(() => {
+		let price = 0
+		itemsInCart.forEach((item) => (price += item.quantity * item.price))
+		setTotal(price)
+	}, [cartQuantity])
 
 	const handleOpenCurrency = () => {
 		setMenuCurrencyMenuOpen(!isCurrencyMenuOpen)
@@ -20,6 +26,12 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 	const handleOpenCart = () => {
 		setCartOpen(!isCartOpen)
 		setMenuCurrencyMenuOpen(false)
+	}
+	const handleQuantityDecrease = () => {
+		console.log('decrease')
+	}
+	const handleQuantityIncrease = () => {
+		console.log('increase')
 	}
 	return (
 		<nav>
@@ -83,9 +95,9 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 											<span>{item.size}</span>
 											<span style={{ backgroundColor: item.color, width: '15px', height: '15px' }}></span>
 											<div className="controls">
-												<button>-</button>
+												<button onClick={handleQuantityDecrease}>-</button>
 												<span>{item.quantity}</span>
-												<button>+</button>
+												<button onClick={handleQuantityIncrease}>+</button>
 											</div>
 										</div>
 									</div>
@@ -93,11 +105,16 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 							)
 						})}
 						{itemsInCart.length > 0 ? (
-							<button className="checkout">
-								<NavLink activeclassname="active" to="/cart">
-									Go to Checkout
-								</NavLink>
-							</button>
+							<>
+								<span style={{ placeSelf: 'center' }}>
+									Total: {currency === '£' ? (displayedTotal = Math.round(total * 0.85 * 100) / 100) : currency === '€' ? (displayedTotal = Math.round(total * 0.99 * 100) / 100) : (displayedTotal = total)} {currency}
+								</span>
+								<button className="checkout">
+									<NavLink activeclassname="active" to="/cart">
+										Go to Checkout
+									</NavLink>
+								</button>
+							</>
 						) : (
 							<p>Your Cart is Empty</p>
 						)}

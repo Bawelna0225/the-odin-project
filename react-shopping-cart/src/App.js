@@ -22,17 +22,6 @@ function App() {
 	const handleChangeCurrency = (currency) => {
 		setCurrency(currency)
 	}
-	// switch (currency) {
-	// 	case '£':
-	// 		cost = Math.round(items.price * 0.85 * 100) / 100
-	// 		break
-	// 	case '€':
-	// 		cost = Math.round(items.price * 0.99 * 100) / 100
-	// 		break
-	// 	default:
-	// 		cost = items.price
-	// 		break
-	// }
 	const handleAddToCart = (id, name, price, img, activeSize, activeColor) => {
 		let isInCart = false
 		if (cart.length > 0)
@@ -51,12 +40,12 @@ function App() {
 	return (
 		<div className="App">
 			<BrowserRouter history={history}>
-				<Navbar cartQuantity={amountInCart} itemsInCart={cart}  handleChangeCurrency={handleChangeCurrency} currency={currency} />
+				<Navbar cartQuantity={amountInCart} itemsInCart={cart} handleChangeCurrency={handleChangeCurrency} currency={currency} />
 				<Routes>
 					<Route path="/">
 						<Route index element={<Home />} />
 						<Route path="products">
-							<Route index element={<Products currency={currency}   />} />
+							<Route index element={<Products currency={currency} />} />
 							<Route path=":productId" element={<SingleProduct currency={currency} handleAddToCart={handleAddToCart} />} />
 						</Route>
 						<Route path="cart" element={<Cart />} />
