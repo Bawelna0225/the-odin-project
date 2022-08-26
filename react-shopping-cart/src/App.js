@@ -40,7 +40,7 @@ function App() {
 	return (
 		<div className="App">
 			<BrowserRouter history={history}>
-				<Navbar cartQuantity={amountInCart} itemsInCart={cart} handleChangeCurrency={handleChangeCurrency} currency={currency} />
+				<Navbar cartQuantity={amountInCart} itemsInCart={cart} handleChangeCurrency={handleChangeCurrency} currency={currency} setAmountInCart={setAmountInCart}/>
 				<Routes>
 					<Route path="/">
 						<Route index element={<Home />} />

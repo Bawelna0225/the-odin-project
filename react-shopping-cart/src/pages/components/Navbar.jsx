@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { BsCart3 } from 'react-icons/bs'
 import { MdExpandMore } from 'react-icons/md'
 
-export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, currency }) => {
+export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, currency, setAmountInCart }) => {
 	const currencies = [
 		{ id: 1, currency: '$' },
 		{ id: 2, currency: '£' },
@@ -27,11 +27,17 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 		setCartOpen(!isCartOpen)
 		setMenuCurrencyMenuOpen(false)
 	}
-	const handleQuantityDecrease = () => {
-		console.log('decrease')
+	const handleQuantityDecrease = (item) => {
+		if (item.quantity === 0) return
+		item.quantity -= 1
+		setAmountInCart(cartQuantity - 1)
 	}
-	const handleQuantityIncrease = () => {
-		console.log('increase')
+	const handleQuantityIncrease = (item) => {
+		item.quantity += 1
+		setAmountInCart(cartQuantity + 1)
+	}
+	const handleDelete = (item) => {
+
 	}
 	return (
 		<nav>
@@ -69,6 +75,7 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 				{isCartOpen && (
 					<div className="cart">
 						{itemsInCart.map((item) => {
+							if(item.quantity === 0) return handleDelete(item)
 							let displayedPrice
 							switch (currency) {
 								case '£':
@@ -95,19 +102,19 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 											<span>{item.size}</span>
 											<span style={{ backgroundColor: item.color, width: '15px', height: '15px' }}></span>
 											<div className="controls">
-												<button onClick={handleQuantityDecrease}>-</button>
+												<button onClick={() => handleQuantityDecrease(item)}>-</button>
 												<span>{item.quantity}</span>
-												<button onClick={handleQuantityIncrease}>+</button>
+												<button onClick={() => handleQuantityIncrease(item)}>+</button>
 											</div>
 										</div>
 									</div>
 								</div>
 							)
 						})}
-						{itemsInCart.length > 0 ? (
+						{cartQuantity > 0 ? (
 							<>
 								<span style={{ placeSelf: 'center' }}>
-									Total: {currency === '£' ? (displayedTotal = Math.round(total * 0.85 * 100) / 100) : currency === '€' ? (displayedTotal = Math.round(total * 0.99 * 100) / 100) : (displayedTotal = total)} {currency}
+									Total: {currency === '£' ? (displayedTotal = Math.round(total * 0.85 * 100) / 100).toFixed(2) : currency === '€' ? (displayedTotal = Math.round(total * 0.99 * 100) / 100).toFixed(2) : (displayedTotal = total).toFixed(2)} {currency}
 								</span>
 								<button className="checkout">
 									<NavLink activeclassname="active" to="/cart">

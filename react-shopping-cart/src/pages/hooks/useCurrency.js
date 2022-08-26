@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import SingleProduct from '../SingleProduct'
+import { useEffect, useState } from 'react'
 
 const useCurrency = (currency) => {
     let [activeCurrency, setActiveCurrency] = useState()
