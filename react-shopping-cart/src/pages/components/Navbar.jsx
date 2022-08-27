@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { BsCart3 } from 'react-icons/bs'
 import { MdExpandMore } from 'react-icons/md'
 
-export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, currency, setAmountInCart }) => {
+export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, currency, setAmountInCart, setCart }) => {
 	const currencies = [
 		{ id: 1, currency: '$' },
 		{ id: 2, currency: '£' },
@@ -37,8 +37,11 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 		setAmountInCart(cartQuantity + 1)
 	}
 	const handleDelete = (item) => {
-
+		setAmountInCart(cartQuantity - item.quantity)
+		let newCart = itemsInCart.filter((e) => e !== item)
+		handleCartChange(newCart)
 	}
+	const handleCartChange = useCallback((newCart) => setCart(newCart))
 	return (
 		<nav>
 			<div className="left-nav">
@@ -75,7 +78,7 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 				{isCartOpen && (
 					<div className="cart">
 						{itemsInCart.map((item) => {
-							if(item.quantity === 0) return handleDelete(item)
+							if (item.quantity === 0) return handleDelete(item)
 							let displayedPrice
 							switch (currency) {
 								case '£':
@@ -117,7 +120,7 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 									Total: {currency === '£' ? (displayedTotal = Math.round(total * 0.85 * 100) / 100).toFixed(2) : currency === '€' ? (displayedTotal = Math.round(total * 0.99 * 100) / 100).toFixed(2) : (displayedTotal = total).toFixed(2)} {currency}
 								</span>
 								<button className="checkout">
-									<NavLink activeclassname="active" to="/cart">
+									<NavLink activeclassname="" to="/cart">
 										Go to Checkout
 									</NavLink>
 								</button>

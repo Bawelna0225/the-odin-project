@@ -248,6 +248,15 @@ section {
   border: 1px solid rgb(125, 125, 125);
 }
 
+.cart-section {
+  width: 100%;
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -1,10 +1,8 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import React, { useState } from 'react'
 import Home from './pages/Home'
-import { items } from './pages/data'
 import { Cart } from './pages/Cart'
 import { Products } from './pages/Products'
-import Product from './pages/components/Product'
 import useCurrency from './pages/hooks/useCurrency'
 import { Navbar } from './pages/components/Navbar'
 import SingleProduct from './pages/SingleProduct'
@@ -40,7 +38,7 @@ function App() {
 	return (
 		<div className="App">
 			<BrowserRouter history={history}>
-				<Navbar cartQuantity={amountInCart} itemsInCart={cart} handleChangeCurrency={handleChangeCurrency} currency={currency} setAmountInCart={setAmountInCart}/>
+				<Navbar cartQuantity={amountInCart} itemsInCart={cart} handleChangeCurrency={handleChangeCurrency} currency={currency} setAmountInCart={setAmountInCart} setCart={setCart} />
 				<Routes>
 					<Route path="/">
 						<Route index element={<Home />} />
@@ -48,7 +46,7 @@ function App() {
 							<Route index element={<Products currency={currency} />} />
 							<Route path=":productId" element={<SingleProduct currency={currency} handleAddToCart={handleAddToCart} />} />
 						</Route>
-						<Route path="cart" element={<Cart />} />
+						<Route path="cart" element={<Cart cartQuantity={amountInCart} itemsInCart={cart} currency={currency} setAmountInCart={setAmountInCart} setCart={setCart} />} />
 					</Route>
 					<Route path="*" element={<NotFound />}></Route>
 				</Routes>
