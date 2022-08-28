@@ -27,6 +27,13 @@ export const Cart = ({ cartQuantity, itemsInCart, currency, setAmountInCart, set
 	return (
 		<>
 			<div className="cart-section">
+				<p className='title'>Image</p>
+				<p className='title'>Product</p>
+				<p className='title'>Price</p>
+				<p className='title'>Size</p>
+				<p className='title'>Color</p>
+				<p className='title'>Quantity</p>
+
 				{itemsInCart.map((item) => {
 					if (item.quantity === 0) return handleDelete(item)
 					let displayedPrice
@@ -42,31 +49,48 @@ export const Cart = ({ cartQuantity, itemsInCart, currency, setAmountInCart, set
 							break
 					}
 					return (
-						<div className="item-in-cart">
+						<>
 							<img src={item.img} alt="" />
-							<div className="info">
-								<div className="top">
-									<p>{item.name}</p>
-									<p className="price">
-										{currency} {displayedPrice}
-									</p>
-								</div>
-								<div className="bottom">
-									<span>{item.size}</span>
-									<span style={{ backgroundColor: item.color, width: '15px', height: '15px' }}></span>
-									<div className="controls">
-										<button onClick={() => handleQuantityDecrease(item)}>-</button>
-										<span>{item.quantity}</span>
-										<button onClick={() => handleQuantityIncrease(item)}>+</button>
-									</div>
-								</div>
+							<p>{item.name}</p>
+							<p className="price">
+								{currency} {displayedPrice}
+							</p>
+							<span className='size'>{item.size}</span>
+							<div className="color">
+								<span style={{ backgroundColor: item.color, width: '30px', height: '30px' }}></span>
 							</div>
-						</div>
+
+							<div className="controls">
+								<button onClick={() => handleQuantityDecrease(item)}>-</button>
+								<span>{item.quantity}</span>
+								<button onClick={() => handleQuantityIncrease(item)}>+</button>
+							</div>
+						</>
+						// <div className="item-in-cart">
+						// 	<img src={item.img} alt="" />
+						// 	<div className="info">
+						// 		<div className="top">
+						// 			<p>{item.name}</p>
+						// 			<p className="price">
+						// 				{currency} {displayedPrice}
+						// 			</p>
+						// 		</div>
+						// 		<div className="bottom">
+						// 			<span>{item.size}</span>
+						// 			<span style={{ backgroundColor: item.color, width: '15px', height: '15px' }}></span>
+						// 			<div className="controls">
+						// 				<button onClick={() => handleQuantityDecrease(item)}>-</button>
+						// 				<span>{item.quantity}</span>
+						// 				<button onClick={() => handleQuantityIncrease(item)}>+</button>
+						// 			</div>
+						// 		</div>
+						// 	</div>
+						// </div>
 					)
 				})}
 				{cartQuantity > 0 ? (
 					<>
-						<span style={{ placeSelf: 'center' }}>
+						<span className="total" style={{ placeSelf: 'center' }}>
 							Total: {currency === '£' ? (displayedTotal = Math.round(total * 0.85 * 100) / 100).toFixed(2) : currency === '€' ? (displayedTotal = Math.round(total * 0.99 * 100) / 100).toFixed(2) : (displayedTotal = total).toFixed(2)} {currency}
 						</span>
 					</>
