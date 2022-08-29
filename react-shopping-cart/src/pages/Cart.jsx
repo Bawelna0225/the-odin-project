@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
+import { BsTrash } from 'react-icons/bs'
 
 export const Cart = ({ cartQuantity, itemsInCart, currency, setAmountInCart, setCart }) => {
 	const [total, setTotal] = useState(0)
@@ -26,13 +27,18 @@ export const Cart = ({ cartQuantity, itemsInCart, currency, setAmountInCart, set
 	const handleCartChange = useCallback((newCart) => setCart(newCart))
 	return (
 		<>
-			<div className="cart-section">
-				<p className='title'>Image</p>
-				<p className='title'>Product</p>
-				<p className='title'>Price</p>
-				<p className='title'>Size</p>
-				<p className='title'>Color</p>
-				<p className='title'>Quantity</p>
+			<section className="cart-section">
+				{cartQuantity > 0 && (
+					<>
+						<p className="title">Image</p>
+						<p className="title">Product</p>
+						<p className="title">Price</p>
+						<p className="title">Size</p>
+						<p className="title">Color</p>
+						<p className="title">Quantity</p>
+						<p className="title"></p>
+					</>
+				)}
 
 				{itemsInCart.map((item) => {
 					if (item.quantity === 0) return handleDelete(item)
@@ -50,54 +56,42 @@ export const Cart = ({ cartQuantity, itemsInCart, currency, setAmountInCart, set
 					}
 					return (
 						<>
-							<img src={item.img} alt="" />
-							<p>{item.name}</p>
-							<p className="price">
-								{currency} {displayedPrice}
-							</p>
-							<span className='size'>{item.size}</span>
-							<div className="color">
-								<span style={{ backgroundColor: item.color, width: '30px', height: '30px' }}></span>
-							</div>
+							<div className="item-in-cart">
+								<img src={item.img} alt="" />
+								<p>{item.name}</p>
+								<p className="price">
+									{currency} {displayedPrice}
+								</p>
+								<span className="size">{item.size}</span>
+								<div className="color">
+									<span style={{ backgroundColor: item.color, width: '30px', height: '30px' }}></span>
+								</div>
 
-							<div className="controls">
-								<button onClick={() => handleQuantityDecrease(item)}>-</button>
-								<span>{item.quantity}</span>
-								<button onClick={() => handleQuantityIncrease(item)}>+</button>
+								<div className="controls">
+									<button onClick={() => handleQuantityDecrease(item)}>-</button>
+									<span>{item.quantity}</span>
+									<button onClick={() => handleQuantityIncrease(item)}>+</button>
+								</div>
+								<BsTrash style={{ cursor: 'pointer' }} onClick={() => handleDelete(item)} />
 							</div>
 						</>
-						// <div className="item-in-cart">
-						// 	<img src={item.img} alt="" />
-						// 	<div className="info">
-						// 		<div className="top">
-						// 			<p>{item.name}</p>
-						// 			<p className="price">
-						// 				{currency} {displayedPrice}
-						// 			</p>
-						// 		</div>
-						// 		<div className="bottom">
-						// 			<span>{item.size}</span>
-						// 			<span style={{ backgroundColor: item.color, width: '15px', height: '15px' }}></span>
-						// 			<div className="controls">
-						// 				<button onClick={() => handleQuantityDecrease(item)}>-</button>
-						// 				<span>{item.quantity}</span>
-						// 				<button onClick={() => handleQuantityIncrease(item)}>+</button>
-						// 			</div>
-						// 		</div>
-						// 	</div>
-						// </div>
 					)
 				})}
 				{cartQuantity > 0 ? (
 					<>
-						<span className="total" style={{ placeSelf: 'center' }}>
-							Total: {currency === '£' ? (displayedTotal = Math.round(total * 0.85 * 100) / 100).toFixed(2) : currency === '€' ? (displayedTotal = Math.round(total * 0.99 * 100) / 100).toFixed(2) : (displayedTotal = total).toFixed(2)} {currency}
-						</span>
+						<div className="total" style={{ placeSelf: 'center' }}>
+							<p>
+								Total:{' '}
+								<span>
+									{currency === '£' ? (displayedTotal = Math.round(total * 0.85 * 100) / 100).toFixed(2) : currency === '€' ? (displayedTotal = Math.round(total * 0.99 * 100) / 100).toFixed(2) : (displayedTotal = total).toFixed(2)} {currency}
+								</span>
+							</p>
+						</div>
 					</>
 				) : (
-					<p>Your Cart is Empty</p>
+					<p style={{position: 'absolute', top: '0%', left: '50%', transform: 'translateX(-50%)'}}>Your Cart is Empty</p>
 				)}
-			</div>
+			</section>
 		</>
 	)
 }

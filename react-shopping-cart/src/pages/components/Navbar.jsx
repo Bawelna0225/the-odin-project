@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import React, { useState, useEffect, useCallback } from 'react'
-import { BsCart3 } from 'react-icons/bs'
+import { BsCart3, BsTrash } from 'react-icons/bs'
+
 import { MdExpandMore } from 'react-icons/md'
 
 export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, currency, setAmountInCart, setCart }) => {
@@ -76,7 +77,7 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 					{cartQuantity > 0 && <span>{cartQuantity}</span>}
 				</button>
 				{isCartOpen && (
-					<div className="cart">
+					<div className="cart" style={{ overflow: 'auto' }}>
 						{itemsInCart.map((item) => {
 							if (item.quantity === 0) return handleDelete(item)
 							let displayedPrice
@@ -109,24 +110,25 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 												<span>{item.quantity}</span>
 												<button onClick={() => handleQuantityIncrease(item)}>+</button>
 											</div>
+											<BsTrash style={{ cursor: 'pointer' }} onClick={() => handleDelete(item)} />
 										</div>
 									</div>
 								</div>
 							)
 						})}
 						{cartQuantity > 0 ? (
-							<>
-								<span style={{ placeSelf: 'center' }}>
-									Total: {currency === '£' ? (displayedTotal = Math.round(total * 0.85 * 100) / 100).toFixed(2) : currency === '€' ? (displayedTotal = Math.round(total * 0.99 * 100) / 100).toFixed(2) : (displayedTotal = total).toFixed(2)} {currency}
-								</span>
-								<button className="checkout">
-									<NavLink activeclassname="" to="/cart">
-										Go to Checkout
-									</NavLink>
-								</button>
-							</>
+								<div className="summary">
+									<span style={{ placeSelf: 'center' }}>
+										Total: {currency === '£' ? (displayedTotal = Math.round(total * 0.85 * 100) / 100).toFixed(2) : currency === '€' ? (displayedTotal = Math.round(total * 0.99 * 100) / 100).toFixed(2) : (displayedTotal = total).toFixed(2)} {currency}
+									</span>
+									<button className="checkout">
+										<NavLink to="/cart">
+											Go to Checkout
+										</NavLink>
+									</button>
+								</div>
 						) : (
-							<p>Your Cart is Empty</p>
+							<p style={{ position: 'absolute', top: '50%' }}>Your Cart is Empty</p>
 						)}
 					</div>
 				)}

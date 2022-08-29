@@ -1,4 +1,7 @@
 nav {
+	top: 0;
+	position: fixed;
+	box-shadow: 0px 0px 10px rgba(162, 162, 162, 0.757);
 	a {
 		height: 100%;
 		display: flex;
@@ -69,17 +72,18 @@ nav {
 		}
 	}
 	.cart {
+		padding-top: 20px;
 		background-color: #fff;
+		overflow: auto;
 		position: absolute;
 		top: 80px;
 		box-shadow: 0px 0px 10px rgba(37, 37, 37, 0.202);
 		width: 300px;
-		min-height: 300px;
+		height: 400px;
 		right: 40px;
 		display: flex;
-		justify-content: center;
+		justify-content: flex-start;
 		align-items: flex-start;
-		padding-block: 20px;
 		gap: 10px;
 		flex-direction: column;
 		p {
@@ -126,6 +130,15 @@ nav {
 					}
 				}
 			}
+		}
+		.summary {
+			background-color: rgb(245, 245, 245);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			padding: 20px;
 		}
 		.checkout {
 			border: 1px solid black;
