@@ -1,0 +1,89 @@
+#home {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100vh !important;
+	margin-top: 80px !important;
+	gap: 80px;
+	background-color: rgba(12, 28, 57, 0.911);
+	img {
+		width: 60%;
+		height: 100%;
+		object-fit: cover;
+		background-color: rgb(37, 37, 57);
+	}
+	div {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+		width: 40%;
+		h1 {
+			font-size: clamp(2rem, 3vw, 20vw);
+			color: white;
+		}
+		button {
+			height: 50px;
+			width: 140px;
+			font-size: 1.2rem;
+			color: white;
+			border: none;
+			background-color: rgb(39, 195, 65);
+			border-radius: 8px;
+			box-shadow: 0px 0px 10px rgba(38, 164, 26, 0.471);
+			&:hover {
+				box-shadow: 0px 0px 10px rgb(37, 164, 26);
+			}
+		}
+	}
+}
+#clients-recommendation {
+    margin-top: 0px !important;
+    background-color: rgb(231, 235, 249);
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    width: 100%;
+	gap: 50px;
+	h1 {
+		font-size: clamp(2rem, 3vw, 20vw);
+        color: rgb(43, 148, 43);
+	}
+	.reviews {
+        margin: 0 auto;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 500px));
+		display: grid;
+		justify-content: center;
+		align-items: center;
+        place-content: center;
+		padding: 50px;
+		gap: 40px;
+		.card {
+            border-radius: 8px;
+            gap: 20px;
+			padding: 50px;
+			text-align: center;
+			color: white;
+			background-color: rgb(23, 27, 46);
+            box-shadow: 0px 0px 10px rgb(13, 17, 77);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+            p{
+                font-size: 1.2rem;
+            }
+			img {
+				width: 60px;
+                border-radius: 50%;
+			}
+            span{
+                font-size: 1.4rem;
+                color: rgb(63, 175, 63);
+            }
+            .rating {
+                font-size: 1.4rem;
+            }
+		}
+	}
+}

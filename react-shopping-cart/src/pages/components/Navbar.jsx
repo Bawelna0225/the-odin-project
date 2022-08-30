@@ -73,7 +73,7 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 						))}
 				</div>
 				<button className="cartBtn" onClick={handleOpenCart}>
-					<BsCart3 style={{ fontSize: '1.4rem' }} />
+					<BsCart3 style={{ fontSize: '1.4rem', fill: 'white' }} />
 					{cartQuantity > 0 && <span>{cartQuantity}</span>}
 				</button>
 				{isCartOpen && (
