@@ -1,0 +1,26 @@
+#not-found {
+	flex-direction: column;
+	margin-top: 0px !important;
+	gap: 50px;
+	h1 {
+		font-size: clamp(2rem, 20vw, 40vw);
+		span {
+			color: rgb(39, 78, 113);
+		}
+	}
+	p {
+		font-size: clamp(1.3rem, 4vw, 15vw);
+	}
+	a {
+		color: white;
+		padding: 15px 20px;
+		background-color: rgb(31, 31, 59);
+		border-radius: 3px;
+		font-size: 1.2rem;
+		box-shadow: 2px 2px 10px rgb(52, 52, 96);
+        transition: 300ms linear;
+		&:hover {
+			box-shadow: 10px 10px 10px rgb(52, 52, 96);
+		}
+	}
+}

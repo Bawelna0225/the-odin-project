@@ -15,10 +15,10 @@ const Home = () => {
 				</div>
 			</section>
 			<section id="clients-recommendation">
-				<h1>What Clients Say</h1>
+				<h1> Our Customers Reviews</h1>
 				<div className="reviews">
 					<div className="card">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor praesentium voluptatum minima quidem consectetur tempora placeat nemo?</p>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime, corporis doloremque asperiores eligendi labore corrupti nesciunt atque commodi a nostrum.</p>
 						<img src="https://picsum.photos/61/60" alt="" />
 						<span>John Smith</span>
 						<div className="rating">
@@ -44,7 +44,7 @@ const Home = () => {
 					</div>
 					<div className="card">
 						{' '}
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor praesentium voluptatum minima quidem consectetur tempora placeat nemo?</p>
+						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, inventore dolore molestiae autem nesciunt minus in maxime labore. Tempore, placeat?</p>
 						<img src="https://picsum.photos/62/60" alt="" />
 						<span>John Doe</span>
 						<div className="rating">

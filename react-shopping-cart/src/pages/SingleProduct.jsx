@@ -29,9 +29,9 @@ const SingleProduct = ({ handleAddToCart, currency }) => {
 	}
 	return (
 		<section>
-			<button className="goBackBtn">
-				<Link to="/products">Go Back</Link>
-			</button>
+			<Link to="/products">
+				<button className="goBackBtn">Go Back</button>
+			</Link>
 			<div className="single-product-wrapper">
 				<div className="product-image">
 					<img src={img} alt="" />
@@ -54,6 +54,7 @@ const SingleProduct = ({ handleAddToCart, currency }) => {
 						))}
 					</div>
 					<button
+						className='add-to-cart'
 						onClick={(btn) => {
 							btn.preventDefault()
 							handleAddToCart(id, name, price, img, activeSize, activeColor)
