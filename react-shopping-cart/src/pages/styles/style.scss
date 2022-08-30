@@ -12,7 +12,7 @@
 button {
 	cursor: pointer;
 }
-section{
+section {
 	margin-top: 150px !important;
 }
 a {
@@ -20,41 +20,42 @@ a {
 	color: black;
 }
 .container {
-	height: calc(100vh - 80px);
-	display: flex;
+	height: max-content;
+	display: grid;
 	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
 	padding: 40px;
 	gap: 20px;
-}
-.product {
-	display: flex;
-	flex-direction: column;
-	width: 300px;
-	height: 380px;
-	background-color: rgb(240, 240, 240);
-	box-shadow: 0px 0px 10px rgba(37, 37, 37, 0.202);
-
-	overflow: hidden;
-	border-radius: 8px;
-	justify-content: space-between;
-	// padding: 10px;
-	.description {
-		padding: 20px;
+	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	align-content: center;
+	.product {
 		display: flex;
-		align-items: flex-end;
-		justify-content: flex-end;
 		flex-direction: column;
-		gap: 10px;
-		button {
-			padding: 10px;
-			cursor: pointer;
+		background-color: rgb(35, 38, 62);
+		box-shadow: 0px 0px 10px rgba(37, 37, 37, 0.202);
+		color: white;
+		overflow: hidden;
+		border-radius: 8px;
+		justify-content: space-between;
+		h3 {
+			color: rgb(38, 160, 42);
 		}
-	}
-	img {
-		// border-radius: 8px;
-		height: 220px;
-		width: 300px;
+		.description {
+			padding: 20px;
+			display: flex;
+			align-items: flex-end;
+			justify-content: flex-end;
+			flex-direction: column;
+			gap: 10px;
+
+			button {
+				padding: 10px;
+				cursor: pointer;
+			}
+		}
+		img {
+			height: 220px;
+			width: 100%;
+			object-fit: cover;
+		}
 	}
 }

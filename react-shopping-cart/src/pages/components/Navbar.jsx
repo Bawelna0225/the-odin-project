@@ -55,7 +55,7 @@ export const Navbar = ({ cartQuantity, itemsInCart, handleChangeCurrency, curren
 			</div>
 			<div className="right-nav">
 				<button onClick={handleOpenCurrency}>
-					{currency} <MdExpandMore style={{ fontSize: '1.4rem' }} />
+					{currency} <MdExpandMore style={{ fontSize: '1.4rem', fill: 'white' }} />
 				</button>
 				<div className="selectCurrency">
 					{isCurrencyMenuOpen &&
