@@ -2,7 +2,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	height: 100vh !important;
+	height: 100vh;
 	margin-top: 80px !important;
 	gap: 80px;
 	background-color: rgba(12, 28, 57, 0.911);
@@ -39,6 +39,8 @@
 #clients-recommendation {
     margin-top: 0px !important;
     background-color: rgb(231, 235, 249);
+	min-height: 100vh;
+	height: max-content;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;

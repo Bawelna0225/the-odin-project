@@ -72,7 +72,7 @@ export const Cart = ({ cartQuantity, itemsInCart, currency, setAmountInCart, set
 									<span>{item.quantity}</span>
 									<button onClick={() => handleQuantityIncrease(item)}>+</button>
 								</div>
-								<BsTrash style={{ cursor: 'pointer' }} onClick={() => handleDelete(item)} />
+								<BsTrash className='trash' style={{ cursor: 'pointer' }} onClick={() => handleDelete(item)} />
 							</div>
 						</>
 					)
@@ -89,7 +89,7 @@ export const Cart = ({ cartQuantity, itemsInCart, currency, setAmountInCart, set
 						</div>
 					</>
 				) : (
-					<p style={{position: 'absolute', top: '0%', left: '50%', transform: 'translateX(-50%)'}}>Your Cart is Empty</p>
+					<p className='empty-cart' style={{position: 'absolute', top: '0%', left: '50%', transform: 'translateX(-50%)'}}>Your Cart is Empty</p>
 				)}
 			</section>
 		</>
