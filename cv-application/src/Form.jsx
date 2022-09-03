@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+import { PersonalInfoForm } from './components/PersonalInfoForm'
 
 const Form = () => {
-	const [formData, setFormData] = useState({
+	const [personalData, setPersonalData] = useState({
 		firstName: '',
 		lastName: '',
 		dateOfBirth: '',
@@ -10,16 +11,18 @@ const Form = () => {
 		personalDescription: '',
 		phone: '',
 		email: '',
-		experience: [
-			{
-				id: uuidv4(),
-				startDate: '',
-				endDate: '',
-				jobPosition: '',
-				companyName: '',
-				workDescription: '',
-			},
-		],
+	})
+	const [experienceData, setExperienceData] = useState([
+		{
+			id: uuidv4(),
+			startDate: '',
+			endDate: '',
+			jobPosition: '',
+			companyName: '',
+			workDescription: '',
+		},
+	])
+	const [educationData, setEducationData] = useState({
 		education: [
 			{
 				id: uuidv4(),
@@ -30,6 +33,8 @@ const Form = () => {
 				university: '',
 			},
 		],
+	})
+	const [formData, setFormData] = useState({
 		languages: [
 			{
 				languageName: '',
@@ -55,40 +60,34 @@ const Form = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 	}
+	const handleAddExperience = (e) => {
+		e.preventDefault()
+	}
 	const handlePersonalDataChange = (e) => {
 		const { name, value } = e.target
-		setFormData((prevData) => ({
+		setPersonalData((prevData) => ({
+			...prevData,
+			[name]: value,
+		}))
+	}
+	const handleExperienceChange = (e) => {
+		const { name, value } = e.target
+		setExperienceData((prevData) => ({
 			...prevData,
 			[name]: value,
 		}))
 	}
 	return (
 		<>
-			<form onSubmit={(e) => handleSubmit(e)}>
-				<h2>Personal Info</h2>
-				<input name="firstName" type="text" onChange={(e) => handlePersonalDataChange(e)} value={formData.firstName} placeholder="first name" />
-				<input name="lastName" type="text" onChange={(e) => handlePersonalDataChange(e)} value={formData.lastName} />
-				<input name="dateOfBirth" type="date" onChange={(e) => handlePersonalDataChange(e)} value={formData.dateOfBirth} />
-				<input name="placeOfBirth" type="text" onChange={(e) => handlePersonalDataChange(e)} value={formData.placeOfBirth} />
-				<textarea name="personalDescription" onChange={(e) => handlePersonalDataChange(e)} value={formData.personalDescription}></textarea>
-				<button type="submit">Confirm</button>
-			</form>
-			<form onSubmit={(e) => handleSubmit(e)}>
-				<h2>Contact Info</h2>
-				<input name="phone" type="number" onChange={(e) => handlePersonalDataChange(e)} value={formData.phone} />
-				<input type="email" name="email" onChange={(e) => handlePersonalDataChange(e)} value={formData.email} />
-				<button type="submit">Confirm</button>
-			</form>
-			<p>{formData.firstName}</p>
-
-			<form onSubmit={(e) => handleSubmit(e)}>
+			<PersonalInfoForm handlePersonalDataChange={handlePersonalDataChange} personalData={personalData} />
+			<form onSubmit={(e) => handleAddExperience(e)}>
 				<h2>Work Experience</h2>
-				<input min="1900" max="2099" type="number" />
-				<input min="1900" max="2099" type="number" />
-				<input type="text" value="job title" />
-				<input type="text" value="company name" />
-				<textarea name="" id="" cols="30" rows="10" value="description"></textarea>
-				<button type="submit">Confirm</button>
+				<input min="1900" max="2099" name="startDate" type="number" onChange={(e) => handleExperienceChange(e)} value={experienceData.startDate} />
+				<input min="1900" max="2099" type="number" name="endDate" onChange={(e) => handleExperienceChange(e)} value={experienceData.endDate} />
+				<input type="text" name="jobPosition" onChange={(e) => handleExperienceChange(e)} value={experienceData.jobPosition} />
+				<input type="text" name="companyName" onChange={(e) => handleExperienceChange(e)} value={experienceData.companyName} />
+				<textarea name="workDescription" id="" cols="30" rows="10" onChange={(e) => handleExperienceChange(e)} value={experienceData.workDescription}></textarea>
+				<button type="submit">Add Experience</button>
 			</form>
 			{/* 
 			<form onSubmit={() => handleSubmit()}>
