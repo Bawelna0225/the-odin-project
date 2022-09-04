@@ -78,30 +78,30 @@ const Form = () => {
 		}))
 	}
 	return (
-		<>
+		<div className='forms'>
 			<PersonalInfoForm handlePersonalDataChange={handlePersonalDataChange} personalData={personalData} />
 			<form onSubmit={(e) => handleAddExperience(e)}>
 				<h2>Work Experience</h2>
-				<input min="1900" max="2099" name="startDate" type="number" onChange={(e) => handleExperienceChange(e)} value={experienceData.startDate} />
-				<input min="1900" max="2099" type="number" name="endDate" onChange={(e) => handleExperienceChange(e)} value={experienceData.endDate} />
-				<input type="text" name="jobPosition" onChange={(e) => handleExperienceChange(e)} value={experienceData.jobPosition} />
-				<input type="text" name="companyName" onChange={(e) => handleExperienceChange(e)} value={experienceData.companyName} />
-				<textarea name="workDescription" id="" cols="30" rows="10" onChange={(e) => handleExperienceChange(e)} value={experienceData.workDescription}></textarea>
-				<button type="submit">Add Experience</button>
+				<input min="1900" max="2099" name="startDate" type="number" onChange={(e) => handleExperienceChange(e)} value={experienceData.startDate} placeholder="Start Date" />
+				<input min="1900" max="2099" type="number" name="endDate" onChange={(e) => handleExperienceChange(e)} value={experienceData.endDate} placeholder="Ending Date" />
+				<input type="text" name="jobPosition" onChange={(e) => handleExperienceChange(e)} value={experienceData.jobPosition} placeholder="Position" />
+				<input type="text" name="companyName" onChange={(e) => handleExperienceChange(e)} value={experienceData.companyName} placeholder="Company Name" />
+				<textarea name="workDescription" onChange={(e) => handleExperienceChange(e)} value={experienceData.workDescription} placeholder="Description"></textarea>
+				<button type="submit">Add More Experience</button>
 			</form>
-			{/* 
+
 			<form onSubmit={() => handleSubmit()}>
 				<h2>Education</h2>
-				<input min="1900" max="2099" type="number" />
-				<input min="1900" max="2099" type="number" />
-				<input type="text" value="University" />
-				<input type="text" value="degree" />
-				<input type="text" value="field" />
-				<button type="submit">Confirm</button>
+				<input min="1900" max="2099" type="number" placeholder="Start Date" />
+				<input min="1900" max="2099" type="number" placeholder="Ending Date" />
+				<input type="text" value="" placeholder="University" />
+				<input type="text" value="" placeholder="Degree (ex. Bachelor, Master)" />
+				<input type="text" value="" placeholder="Field (ex. IT)" />
+				<button type="submit">Add More Education</button>
 			</form>
 			<form onSubmit={() => handleSubmit()}>
 				<h2>Languages</h2>
-				<input type="text" value="language" />
+				<input type="text" value="" placeholder="Language" />
 				<select>
 					<option value="a1">A1</option>
 					<option value="a2">A2</option>
@@ -110,32 +110,32 @@ const Form = () => {
 					<option value="a1">C1</option>
 					<option value="a2">C2</option>
 				</select>
-				<button type="submit">Confirm</button>
+				<button type="submit">Add More Languages</button>
 			</form>
 			<form onSubmit={() => handleSubmit()}>
 				<h2>Skills</h2>
-				<input type="text" value="skill" />
+				<input type="text" value="" placeholder="Skill" />
 				<button type="submit">Confirm</button>
 			</form>
 			<form onSubmit={() => handleSubmit()}>
 				<h2>Certificates</h2>
-				<input type="text" value="when issued" />
-				<input type="text" value="name of certification" />
-				<input type="text" value="certifying organization" />
-				<button type="submit">Confirm</button>
+				<input type="text" value="" placeholder="When Issued" />
+				<input type="text" value="" placeholder="Certificate Name" />
+				<input type="text" value="" placeholder="Certifying Organization" />
+				<button type="submit">Add More</button>
 			</form>
 			<form onSubmit={() => handleSubmit()}>
 				<h2>Hobby</h2>
-				<input type="text" value="hobby" />
-				<button type="submit">Confirm</button>
-			</form> */}
-			<form onSubmit={(e) => handleSubmit(e)}>
-				<h2>Links</h2>
-				<input type="text" />
-				<input type="text" />
+				<input type="text" value="" placeholder="Hobby" />
 				<button type="submit">Confirm</button>
 			</form>
-		</>
+			<form onSubmit={(e) => handleSubmit(e)}>
+				<h2>Links</h2>
+				<input type="text" placeholder="Name" />
+				<input type="text" placeholder="Url" />
+				<button type="submit">Confirm</button>
+			</form>
+		</div>
 	)
 }
 
