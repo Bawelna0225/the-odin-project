@@ -19,20 +19,20 @@
   gap: 100px;
 }
 
-form {
+form, .form {
   display: flex;
   flex-direction: column;
   width: 500px;
   gap: 10px;
 }
-form input, form select {
+form input, form select, .form input, .form select {
   padding: 10px;
 }
-form button {
+form button, .form button {
   padding: 10px 15px;
   cursor: pointer;
 }
-form textarea {
+form textarea, .form textarea {
   padding: 10px;
   height: 150px;
 }/*# sourceMappingURL=main.css.map */

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+import { ExperienceInfoForm } from './components/ExperienceInfoForm'
 import { PersonalInfoForm } from './components/PersonalInfoForm'
 
 const Form = () => {
@@ -12,16 +13,18 @@ const Form = () => {
 		phone: '',
 		email: '',
 	})
-	const [experienceData, setExperienceData] = useState([
-		{
-			id: uuidv4(),
-			startDate: '',
-			endDate: '',
-			jobPosition: '',
-			companyName: '',
-			workDescription: '',
-		},
-	])
+	const [experienceData, setExperienceData] = useState({
+		experience: [
+			{
+				id: uuidv4(),
+				startDate: '',
+				endDate: '',
+				jobPosition: '',
+				companyName: '',
+				workDescription: '',
+			},
+		],
+	})
 	const [educationData, setEducationData] = useState({
 		education: [
 			{
@@ -60,9 +63,7 @@ const Form = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 	}
-	const handleAddExperience = (e) => {
-		e.preventDefault()
-	}
+
 	const handlePersonalDataChange = (e) => {
 		const { name, value } = e.target
 		setPersonalData((prevData) => ({
@@ -70,27 +71,50 @@ const Form = () => {
 			[name]: value,
 		}))
 	}
-	const handleExperienceChange = (e) => {
+	const handleExperienceChange = (e, id) => {
 		const { name, value } = e.target
-		setExperienceData((prevData) => ({
-			...prevData,
-			[name]: value,
+
+		setExperienceData((prevState) => {
+			const newExperience = prevState.experience.map((experienceItem) => {
+				if (experienceItem.id === id) {
+					return { ...experienceItem, [name]: value }
+				}
+				return experienceItem
+			})
+			return { ...prevState, experience: [...newExperience] }
+		})
+	}
+	const handleAddExperience = () => {
+		setExperienceData((prevState) => ({
+			...prevState,
+			experience: [
+				...prevState.experience,
+				{
+					id: uuidv4(),
+					startDate: '',
+					endDate: '',
+					jobPosition: '',
+					companyName: '',
+					workDescription: '',
+				},
+			],
 		}))
 	}
+	const handleDeleteExperience = (id) => {
+		setExperienceData((prevState) => {
+			const newExperience = prevState.experience.filter((experienceItem) => experienceItem.id !== id)
+			return { ...prevState, experience: [...newExperience] }
+		})
+	}
 	return (
-		<div className='forms'>
+		<div className="forms">
 			<PersonalInfoForm handlePersonalDataChange={handlePersonalDataChange} personalData={personalData} />
-			<form onSubmit={(e) => handleAddExperience(e)}>
+			<div className="form">
 				<h2>Work Experience</h2>
-				<input min="1900" max="2099" name="startDate" type="number" onChange={(e) => handleExperienceChange(e)} value={experienceData.startDate} placeholder="Start Date" />
-				<input min="1900" max="2099" type="number" name="endDate" onChange={(e) => handleExperienceChange(e)} value={experienceData.endDate} placeholder="Ending Date" />
-				<input type="text" name="jobPosition" onChange={(e) => handleExperienceChange(e)} value={experienceData.jobPosition} placeholder="Position" />
-				<input type="text" name="companyName" onChange={(e) => handleExperienceChange(e)} value={experienceData.companyName} placeholder="Company Name" />
-				<textarea name="workDescription" onChange={(e) => handleExperienceChange(e)} value={experienceData.workDescription} placeholder="Description"></textarea>
-				<button type="submit">Add More Experience</button>
-			</form>
+				<ExperienceInfoForm experience={experienceData} onChange={handleExperienceChange} onAdd={handleAddExperience} onDelete={handleDeleteExperience} />
+			</div>
 
-			<form onSubmit={() => handleSubmit()}>
+			{/* <form onSubmit={() => handleSubmit()}>
 				<h2>Education</h2>
 				<input min="1900" max="2099" type="number" placeholder="Start Date" />
 				<input min="1900" max="2099" type="number" placeholder="Ending Date" />
@@ -134,7 +158,7 @@ const Form = () => {
 				<input type="text" placeholder="Name" />
 				<input type="text" placeholder="Url" />
 				<button type="submit">Confirm</button>
-			</form>
+			</form> */}
 		</div>
 	)
 }
