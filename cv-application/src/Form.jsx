@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { ExperienceInfoForm } from './components/ExperienceInfoForm'
+import { EducationInfoForm } from './components/EducationInfoForm'
 import { PersonalInfoForm } from './components/PersonalInfoForm'
 
 const Form = () => {
@@ -60,10 +61,6 @@ const Form = () => {
 			},
 		],
 	})
-	const handleSubmit = (e) => {
-		e.preventDefault()
-	}
-
 	const handlePersonalDataChange = (e) => {
 		const { name, value } = e.target
 		setPersonalData((prevData) => ({
@@ -71,6 +68,7 @@ const Form = () => {
 			[name]: value,
 		}))
 	}
+	// Experience
 	const handleExperienceChange = (e, id) => {
 		const { name, value } = e.target
 
@@ -106,12 +104,52 @@ const Form = () => {
 			return { ...prevState, experience: [...newExperience] }
 		})
 	}
+	// Education
+	const handleEducationChange = (e, id) => {
+		const { name, value } = e.target
+
+		setEducationData((prevState) => {
+			const newEducation = prevState.education.map((educationItem) => {
+				if (educationItem.id === id) {
+					return { ...educationItem, [name]: value }
+				}
+				return educationItem
+			})
+			return { ...prevState, education: [...newEducation] }
+		})
+	}
+	const handleAddEducation = () => {
+		setEducationData((prevState) => ({
+			...prevState,
+			education: [
+				...prevState.education,
+				{
+					id: uuidv4(),
+					startDate: '',
+					endDate: '',
+					degree: '',
+					field: '',
+					university: '',
+				},
+			],
+		}))
+	}
+	const handleDeleteEducation = (id) => {
+		setEducationData((prevState) => {
+			const newEducation = prevState.education.filter((educationItem) => educationItem.id !== id)
+			return { ...prevState, education: [...newEducation] }
+		})
+	}
 	return (
 		<div className="forms">
 			<PersonalInfoForm handlePersonalDataChange={handlePersonalDataChange} personalData={personalData} />
 			<div className="form">
 				<h2>Work Experience</h2>
 				<ExperienceInfoForm experience={experienceData} onChange={handleExperienceChange} onAdd={handleAddExperience} onDelete={handleDeleteExperience} />
+			</div>
+			<div className="form">
+				<h2>Education</h2>
+				<EducationInfoForm education={educationData} onChange={handleEducationChange} onAdd={handleAddEducation} onDelete={handleDeleteEducation} />
 			</div>
 
 			{/* <form onSubmit={() => handleSubmit()}>
