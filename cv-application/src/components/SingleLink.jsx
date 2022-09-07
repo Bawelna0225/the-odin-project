@@ -1,10 +1,10 @@
 import React from 'react'
 
-const SingleLink = ({ id, onChange, onDelete }) => {
+const SingleLink = ({ id, data, onChange, onDelete }) => {
 	return (
 		<>
-			<input type="text" placeholder="Name" />
-			<input type="text" placeholder="Url" />
+			<input onChange={(e) => onChange(e, id)} type="text" placeholder="Name" />
+			<input onChange={(e) => onChange(e, id)} type="text" placeholder="Url" />
 			<button onClick={() => onDelete(id)}>Delete</button>
 		</>
 	)

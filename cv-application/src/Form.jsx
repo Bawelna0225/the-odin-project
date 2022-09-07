@@ -179,6 +179,73 @@ const Form = () => {
 			return { ...prevState, languages: [...newLanguages] }
 		})
 	}
+	// Certificates
+	const handleCertificateChange = (e, id) => {
+		const { name, value } = e.target
+
+		setFormData((prevState) => {
+			const newCertificates = prevState.certifications.map((certificate) => {
+				if (certificate.id === id) {
+					return { ...certificate, [name]: value }
+				}
+				return certificate
+			})
+			return { ...prevState, certifications: [...newCertificates] }
+		})
+	}
+	const handleAddCertificate = () => {
+		setFormData((prevState) => ({
+			...prevState,
+			certifications: [
+				...prevState.certifications,
+				{
+					id: uuidv4(),
+					date: '',
+					name: '',
+					organization: '',
+				},
+			],
+		}))
+	}
+	const handleDeleteCertificate = (id) => {
+		setFormData((prevState) => {
+			const newCertificates = prevState.certifications.filter((certificate) => certificate.id !== id)
+			return { ...prevState, certifications: [...newCertificates] }
+		})
+	}
+	// Links
+	const handleLinkChange = (e, id) => {
+		const { name, value } = e.target
+
+		setFormData((prevState) => {
+			const newLinks = prevState.links.map((link) => {
+				if (link.id === id) {
+					return { ...link, [name]: value }
+				}
+				return link
+			})
+			return { ...prevState, links: [...newLinks] }
+		})
+	}
+	const handleAddLink = () => {
+		setFormData((prevState) => ({
+			...prevState,
+			links: [
+				...prevState.links,
+				{
+					id: uuidv4(),
+					name: '',
+					url: '',
+				},
+			],
+		}))
+	}
+	const handleDeleteLink = (id) => {
+		setFormData((prevState) => {
+			const newLinks = prevState.links.filter((link) => link.id !== id)
+			return { ...prevState, links: [...newLinks] }
+		})
+	}
 	return (
 		<div className="forms">
 			<PersonalInfoForm handlePersonalDataChange={handlePersonalDataChange} personalData={personalData} />
@@ -200,7 +267,7 @@ const Form = () => {
 			</div>
 			<div className="form">
 				<h2>Certificates</h2>
-				<Certificates />
+				<Certificates certificate={formData} onChange={handleCertificateChange} onAdd={handleAddCertificate} onDelete={handleDeleteCertificate} />
 			</div>
 			<div className="form">
 				<h2>Hobby</h2>
@@ -208,7 +275,7 @@ const Form = () => {
 			</div>
 			<div className="form">
 				<h2>Links</h2>
-				<Links />
+				<Links data={formData} onChange={handleLinkChange} onAdd={handleAddLink} onDelete={handleDeleteLink} />
 			</div>
 		</div>
 	)

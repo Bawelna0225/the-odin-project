@@ -1,11 +1,21 @@
 import React from 'react'
 import SingleLink from './SingleLink'
 
-export const Links = ({ onAdd }) => {
+export const Links = ({data, onChange, onAdd, onDelete }) => {
+			const links = [...data.links].map((link) => (
+		<SingleLink 
+			key={link.id} 
+			id={link.id} 
+			link={link} 
+			onChange={onChange} 
+			onAdd={onAdd} 
+			onDelete={onDelete} 
+		/>
+    ))
 	return (
 		<>
-			<SingleLink />
-			<button onClick={onAdd}>Add More Languages</button>
+			{links}
+			<button onClick={onAdd}>Add More Links</button>
 		</>
 	)
 }

@@ -1,11 +1,11 @@
 import React from 'react'
 
-const SingleCertificate = ({ id, onChange, onDelete }) => {
+const SingleCertificate = ({ id, certificate, onChange, onDelete }) => {
 	return (
 		<>
-			<input type="text" name='' value="" placeholder="When Issued" />
-			<input type="text" name='' value="" placeholder="Certificate Name" />
-			<input type="text" name='' value="" placeholder="Certifying Organization" />
+			<input onChange={(e) => onChange(e, id)} type="date" name="date" value={certificate.date} placeholder="When Issued" />
+			<input onChange={(e) => onChange(e, id)} type="text" name="name" value={certificate.name} placeholder="Certificate Name" />
+			<input onChange={(e) => onChange(e, id)} type="text" name="organization" value={certificate.organization} placeholder="Certifying Organization" />
 			<button onClick={() => onDelete(id)}>Delete</button>
 		</>
 	)
