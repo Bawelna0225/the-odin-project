@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+import { PersonalInfoForm } from './components/PersonalInfoForm'
 import { ExperienceInfoForm } from './components/ExperienceInfoForm'
 import { EducationInfoForm } from './components/EducationInfoForm'
-import { PersonalInfoForm } from './components/PersonalInfoForm'
+import { Languages } from './components/Languages'
+import { Certificates } from './components/Certificates'
+import { Links } from './components/Links'
 
 const Form = () => {
 	const [personalData, setPersonalData] = useState({
@@ -41,6 +44,7 @@ const Form = () => {
 	const [formData, setFormData] = useState({
 		languages: [
 			{
+				id: uuidv4(),
 				languageName: '',
 				level: '',
 			},
@@ -48,6 +52,7 @@ const Form = () => {
 		skills: [],
 		certifications: [
 			{
+				id: uuidv4(),
 				date: '',
 				name: '',
 				organization: '',
@@ -56,6 +61,7 @@ const Form = () => {
 		hobbies: [],
 		links: [
 			{
+				id: uuidv4(),
 				name: '',
 				url: '',
 			},
@@ -140,6 +146,39 @@ const Form = () => {
 			return { ...prevState, education: [...newEducation] }
 		})
 	}
+	// Languages
+	const handleLanguageChange = (e, id) => {
+		const { name, value } = e.target
+
+		setFormData((prevState) => {
+			const newLanguages = prevState.languages.map((language) => {
+				if (language.id === id) {
+					return { ...language, [name]: value }
+				}
+				return language
+			})
+			return { ...prevState, languages: [...newLanguages] }
+		})
+	}
+	const handleAddLanguage = () => {
+		setFormData((prevState) => ({
+			...prevState,
+			languages: [
+				...prevState.languages,
+				{
+					id: uuidv4(),
+					languageName: '',
+					level: '',
+				},
+			],
+		}))
+	}
+	const handleDeleteLanguage = (id) => {
+		setFormData((prevState) => {
+			const newLanguages = prevState.languages.filter((language) => language.id !== id)
+			return { ...prevState, languages: [...newLanguages] }
+		})
+	}
 	return (
 		<div className="forms">
 			<PersonalInfoForm handlePersonalDataChange={handlePersonalDataChange} personalData={personalData} />
@@ -151,52 +190,26 @@ const Form = () => {
 				<h2>Education</h2>
 				<EducationInfoForm education={educationData} onChange={handleEducationChange} onAdd={handleAddEducation} onDelete={handleDeleteEducation} />
 			</div>
-
-			{/* <form onSubmit={() => handleSubmit()}>
-				<h2>Education</h2>
-				<input min="1900" max="2099" type="number" placeholder="Start Date" />
-				<input min="1900" max="2099" type="number" placeholder="Ending Date" />
-				<input type="text" value="" placeholder="University" />
-				<input type="text" value="" placeholder="Degree (ex. Bachelor, Master)" />
-				<input type="text" value="" placeholder="Field (ex. IT)" />
-				<button type="submit">Add More Education</button>
-			</form>
-			<form onSubmit={() => handleSubmit()}>
+			<div className="form">
 				<h2>Languages</h2>
-				<input type="text" value="" placeholder="Language" />
-				<select>
-					<option value="a1">A1</option>
-					<option value="a2">A2</option>
-					<option value="a1">B1</option>
-					<option value="a2">B2</option>
-					<option value="a1">C1</option>
-					<option value="a2">C2</option>
-				</select>
-				<button type="submit">Add More Languages</button>
-			</form>
-			<form onSubmit={() => handleSubmit()}>
+				<Languages language={formData} onChange={handleLanguageChange} onAdd={handleAddLanguage} onDelete={handleDeleteLanguage} />
+			</div>
+			<div className="form">
 				<h2>Skills</h2>
-				<input type="text" value="" placeholder="Skill" />
-				<button type="submit">Confirm</button>
-			</form>
-			<form onSubmit={() => handleSubmit()}>
+				<textarea name="skills" placeholder='Add Skills separated by ","'></textarea>
+			</div>
+			<div className="form">
 				<h2>Certificates</h2>
-				<input type="text" value="" placeholder="When Issued" />
-				<input type="text" value="" placeholder="Certificate Name" />
-				<input type="text" value="" placeholder="Certifying Organization" />
-				<button type="submit">Add More</button>
-			</form>
-			<form onSubmit={() => handleSubmit()}>
+				<Certificates />
+			</div>
+			<div className="form">
 				<h2>Hobby</h2>
-				<input type="text" value="" placeholder="Hobby" />
-				<button type="submit">Confirm</button>
-			</form>
-			<form onSubmit={(e) => handleSubmit(e)}>
+				<textarea name="hobby" placeholder='Add Hobbies separated by ","'></textarea>
+			</div>
+			<div className="form">
 				<h2>Links</h2>
-				<input type="text" placeholder="Name" />
-				<input type="text" placeholder="Url" />
-				<button type="submit">Confirm</button>
-			</form> */}
+				<Links />
+			</div>
 		</div>
 	)
 }
