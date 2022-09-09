@@ -61,8 +61,8 @@ function App() {
 	})
 	return (
 		<div className="App">
-			<Form formData={formData} setFormData={setFormData}/>
-			<Preview />
+			<Form formData={formData} setFormData={setFormData} />
+			<Preview formData={formData} />
 		</div>
 	)
 }
