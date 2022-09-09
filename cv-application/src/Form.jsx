@@ -7,69 +7,44 @@ import { Languages } from './components/Languages'
 import { Certificates } from './components/Certificates'
 import { Links } from './components/Links'
 
-const Form = () => {
-	const [personalData, setPersonalData] = useState({
-		firstName: '',
-		lastName: '',
-		dateOfBirth: '',
-		placeOfBirth: '',
-		personalDescription: '',
-		phone: '',
-		email: '',
-	})
-	const [experienceData, setExperienceData] = useState({
-		experience: [
-			{
-				id: uuidv4(),
-				startDate: '',
-				endDate: '',
-				jobPosition: '',
-				companyName: '',
-				workDescription: '',
-			},
-		],
-	})
-	const [educationData, setEducationData] = useState({
-		education: [
-			{
-				id: uuidv4(),
-				startDate: '',
-				endDate: '',
-				degree: '',
-				field: '',
-				university: '',
-			},
-		],
-	})
-	const [formData, setFormData] = useState({
-		languages: [
-			{
-				id: uuidv4(),
-				languageName: '',
-				level: '',
-			},
-		],
-		skills: [],
-		certifications: [
-			{
-				id: uuidv4(),
-				date: '',
-				name: '',
-				organization: '',
-			},
-		],
-		hobbies: [],
-		links: [
-			{
-				id: uuidv4(),
-				name: '',
-				url: '',
-			},
-		],
-	})
+const Form = ({ formData, setFormData }) => {
+	// const [personalData, setPersonalData] = useState({
+	// 	firstName: '',
+	// 	lastName: '',
+	// 	dateOfBirth: '',
+	// 	placeOfBirth: '',
+	// 	personalDescription: '',
+	// 	phone: '',
+	// 	email: '',
+	// })
+	// const [experienceData, setExperienceData] = useState({
+	// 	experience: [
+	// 		{
+	// 			id: uuidv4(),
+	// 			startDate: '',
+	// 			endDate: '',
+	// 			jobPosition: '',
+	// 			companyName: '',
+	// 			workDescription: '',
+	// 		},
+	// 	],
+	// })
+	// const [educationData, setEducationData] = useState({
+	// 	education: [
+	// 		{
+	// 			id: uuidv4(),
+	// 			startDate: '',
+	// 			endDate: '',
+	// 			degree: '',
+	// 			field: '',
+	// 			university: '',
+	// 		},
+	// 	],
+	// })
+
 	const handlePersonalDataChange = (e) => {
 		const { name, value } = e.target
-		setPersonalData((prevData) => ({
+		setFormData((prevData) => ({
 			...prevData,
 			[name]: value,
 		}))
@@ -78,7 +53,7 @@ const Form = () => {
 	const handleExperienceChange = (e, id) => {
 		const { name, value } = e.target
 
-		setExperienceData((prevState) => {
+		setFormData((prevState) => {
 			const newExperience = prevState.experience.map((experienceItem) => {
 				if (experienceItem.id === id) {
 					return { ...experienceItem, [name]: value }
@@ -89,7 +64,7 @@ const Form = () => {
 		})
 	}
 	const handleAddExperience = () => {
-		setExperienceData((prevState) => ({
+		setFormData((prevState) => ({
 			...prevState,
 			experience: [
 				...prevState.experience,
@@ -105,7 +80,7 @@ const Form = () => {
 		}))
 	}
 	const handleDeleteExperience = (id) => {
-		setExperienceData((prevState) => {
+		setFormData((prevState) => {
 			const newExperience = prevState.experience.filter((experienceItem) => experienceItem.id !== id)
 			return { ...prevState, experience: [...newExperience] }
 		})
@@ -114,7 +89,7 @@ const Form = () => {
 	const handleEducationChange = (e, id) => {
 		const { name, value } = e.target
 
-		setEducationData((prevState) => {
+		setFormData((prevState) => {
 			const newEducation = prevState.education.map((educationItem) => {
 				if (educationItem.id === id) {
 					return { ...educationItem, [name]: value }
@@ -125,7 +100,7 @@ const Form = () => {
 		})
 	}
 	const handleAddEducation = () => {
-		setEducationData((prevState) => ({
+		setFormData((prevState) => ({
 			...prevState,
 			education: [
 				...prevState.education,
@@ -141,7 +116,7 @@ const Form = () => {
 		}))
 	}
 	const handleDeleteEducation = (id) => {
-		setEducationData((prevState) => {
+		setFormData((prevState) => {
 			const newEducation = prevState.education.filter((educationItem) => educationItem.id !== id)
 			return { ...prevState, education: [...newEducation] }
 		})
@@ -248,14 +223,14 @@ const Form = () => {
 	}
 	return (
 		<div className="forms">
-			<PersonalInfoForm handlePersonalDataChange={handlePersonalDataChange} personalData={personalData} />
+			<PersonalInfoForm handlePersonalDataChange={handlePersonalDataChange} personalData={formData} />
 			<div className="form">
 				<h2>Work Experience</h2>
-				<ExperienceInfoForm experience={experienceData} onChange={handleExperienceChange} onAdd={handleAddExperience} onDelete={handleDeleteExperience} />
+				<ExperienceInfoForm experience={formData} onChange={handleExperienceChange} onAdd={handleAddExperience} onDelete={handleDeleteExperience} />
 			</div>
 			<div className="form">
 				<h2>Education</h2>
-				<EducationInfoForm education={educationData} onChange={handleEducationChange} onAdd={handleAddEducation} onDelete={handleDeleteEducation} />
+				<EducationInfoForm education={formData} onChange={handleEducationChange} onAdd={handleAddEducation} onDelete={handleDeleteEducation} />
 			</div>
 			<div className="form">
 				<h2>Languages</h2>
