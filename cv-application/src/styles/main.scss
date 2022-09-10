@@ -37,8 +37,8 @@ form,
 }
 .tags-container {
 	width: 500px;
-    align-items: center;
-    flex-wrap: wrap;
+	align-items: center;
+	flex-wrap: wrap;
 	display: flex;
 	gap: 15px;
 	.tag {
@@ -49,12 +49,12 @@ form,
 		padding: 10px;
 		border-radius: 22px;
 		gap: 10px;
-        color: #fff;
+		color: #fff;
 		.delete-tag {
 			background-color: #fff;
 			padding: 5px;
-            color: black;
-            font-size: 1.2rem;
+			color: black;
+			font-size: 1.2rem;
 			border-radius: 50%;
 			width: 10px;
 			height: 10px;
@@ -68,5 +68,12 @@ form,
 		border: none;
 		outline: none;
 		background-color: transparent;
+	}
+}
+.hobbies {
+	@for $i from 1 through 20 {
+		.tag:nth-child(#{$i}) {
+			background-color: rgb(random(200), random(200), random(200));
+		}
 	}
 }

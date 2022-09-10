@@ -6,6 +6,7 @@ import { EducationInfoForm } from './components/EducationInfoForm'
 import { Languages } from './components/Languages'
 import { Skills } from './components/Skills'
 import { Certificates } from './components/Certificates'
+import { Hobbies } from './components/Hobbies'
 import { Links } from './components/Links'
 
 const Form = ({ formData, setFormData }) => {
@@ -17,6 +18,7 @@ const Form = ({ formData, setFormData }) => {
 		}))
 	}
 	// Experience
+	// Hobbies
 	const handleExperienceChange = (e, id) => {
 		const { name, value } = e.target
 
@@ -91,7 +93,6 @@ const Form = ({ formData, setFormData }) => {
 	// Languages
 	const handleLanguageChange = (e, id) => {
 		const { name, value } = e.target
-
 		setFormData((prevState) => {
 			const newLanguages = prevState.languages.map((language) => {
 				if (language.id === id) {
@@ -101,6 +102,7 @@ const Form = ({ formData, setFormData }) => {
 			})
 			return { ...prevState, languages: [...newLanguages] }
 		})
+		console.log(formData.languages)
 	}
 	const handleAddLanguage = () => {
 		setFormData((prevState) => ({
@@ -137,7 +139,6 @@ const Form = ({ formData, setFormData }) => {
 		setFormData((prevState) => {
 			const newSkills = prevState.skills.filter((skill) => skill !== skillName)
 			return { ...prevState, skills: [...newSkills] }
-
 		})
 	}
 	// Certificates
@@ -172,6 +173,24 @@ const Form = ({ formData, setFormData }) => {
 		setFormData((prevState) => {
 			const newCertificates = prevState.certifications.filter((certificate) => certificate.id !== id)
 			return { ...prevState, certifications: [...newCertificates] }
+		})
+	}
+	// Hobbies
+	const handleAddHobby = (e) => {
+		if (e.key !== 'Enter') return
+		const newHobby = e.target.value
+		if (!newHobby.trim()) return
+		if (formData.hobbies.includes(newHobby)) return
+		setFormData((prevState) => ({
+			...prevState,
+			hobbies: [...prevState.hobbies, newHobby],
+		}))
+		e.target.value = ''
+	}
+	const handleDeleteHobby = (hobbyName) => {
+		setFormData((prevState) => {
+			const newHobbies = prevState.hobbies.filter((hobby) => hobby !== hobbyName)
+			return { ...prevState, hobbies: [...newHobbies] }
 		})
 	}
 	// Links
@@ -232,7 +251,7 @@ const Form = ({ formData, setFormData }) => {
 			</div>
 			<div className="form">
 				<h2>Hobby</h2>
-				<textarea name="hobby" placeholder='Add Hobbies separated by ","'></textarea>
+				<Hobbies hobbies={formData} handleAddHobby={handleAddHobby} handleDeleteHobby={handleDeleteHobby} />
 			</div>
 			<div className="form">
 				<h2>Links</h2>
