@@ -1,35 +1,72 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
 }
 .App {
-    display: flex;
-    justify-content: space-between;
-    padding-inline: 50px;
-    padding-block: 50px;
+	display: flex;
+	justify-content: space-between;
+	padding-inline: 50px;
+	padding-block: 50px;
 }
 .forms {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 100px;
 }
-form, .form {
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    gap: 10px;
-    input,select {
-        padding: 10px;
-    }
-    button {
-        padding: 10px 15px;
-        cursor: pointer;
-    }
-    textarea {
-        padding: 10px;
-        height: 150px;
-    }
+form,
+.form {
+	display: flex;
+	flex-direction: column;
+	width: 500px;
+	gap: 10px;
+	input,
+	select {
+		padding: 10px;
+	}
+	button {
+		padding: 10px 15px;
+		cursor: pointer;
+	}
+	textarea {
+		padding: 10px;
+		height: 150px;
+	}
+}
+.tags-container {
+	width: 500px;
+    align-items: center;
+    flex-wrap: wrap;
+	display: flex;
+	gap: 15px;
+	.tag {
+		background-color: rgb(62, 62, 62);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 10px;
+		border-radius: 22px;
+		gap: 10px;
+        color: #fff;
+		.delete-tag {
+			background-color: #fff;
+			padding: 5px;
+            color: black;
+            font-size: 1.2rem;
+			border-radius: 50%;
+			width: 10px;
+			height: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+		}
+	}
+	input {
+		border: none;
+		outline: none;
+		background-color: transparent;
+	}
 }

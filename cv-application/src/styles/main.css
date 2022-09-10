@@ -19,20 +19,62 @@
   gap: 100px;
 }
 
-form, .form {
+form,
+.form {
   display: flex;
   flex-direction: column;
   width: 500px;
   gap: 10px;
 }
-form input, form select, .form input, .form select {
+form input,
+form select,
+.form input,
+.form select {
   padding: 10px;
 }
-form button, .form button {
+form button,
+.form button {
   padding: 10px 15px;
   cursor: pointer;
 }
-form textarea, .form textarea {
+form textarea,
+.form textarea {
   padding: 10px;
   height: 150px;
+}
+
+.tags-container {
+  width: 500px;
+  align-items: center;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 15px;
+}
+.tags-container .tag {
+  background-color: rgb(62, 62, 62);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 22px;
+  gap: 10px;
+  color: #fff;
+}
+.tags-container .tag .delete-tag {
+  background-color: #fff;
+  padding: 5px;
+  color: black;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.tags-container input {
+  border: none;
+  outline: none;
+  background-color: transparent;
 }/*# sourceMappingURL=main.css.map */
