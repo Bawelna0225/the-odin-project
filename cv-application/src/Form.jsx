@@ -1,47 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { PersonalInfoForm } from './components/PersonalInfoForm'
 import { ExperienceInfoForm } from './components/ExperienceInfoForm'
 import { EducationInfoForm } from './components/EducationInfoForm'
 import { Languages } from './components/Languages'
+import { Skills } from './components/Skills'
 import { Certificates } from './components/Certificates'
 import { Links } from './components/Links'
 
 const Form = ({ formData, setFormData }) => {
-	// const [personalData, setPersonalData] = useState({
-	// 	firstName: '',
-	// 	lastName: '',
-	// 	dateOfBirth: '',
-	// 	placeOfBirth: '',
-	// 	personalDescription: '',
-	// 	phone: '',
-	// 	email: '',
-	// })
-	// const [experienceData, setExperienceData] = useState({
-	// 	experience: [
-	// 		{
-	// 			id: uuidv4(),
-	// 			startDate: '',
-	// 			endDate: '',
-	// 			jobPosition: '',
-	// 			companyName: '',
-	// 			workDescription: '',
-	// 		},
-	// 	],
-	// })
-	// const [educationData, setEducationData] = useState({
-	// 	education: [
-	// 		{
-	// 			id: uuidv4(),
-	// 			startDate: '',
-	// 			endDate: '',
-	// 			degree: '',
-	// 			field: '',
-	// 			university: '',
-	// 		},
-	// 	],
-	// })
-
 	const handlePersonalDataChange = (e) => {
 		const { name, value } = e.target
 		setFormData((prevData) => ({
@@ -154,6 +121,25 @@ const Form = ({ formData, setFormData }) => {
 			return { ...prevState, languages: [...newLanguages] }
 		})
 	}
+	// Skills
+	const handleAddSkill = (e) => {
+		if (e.key !== 'Enter') return
+		const newSkill = e.target.value
+		if (!newSkill.trim()) return // return if skill is empty value
+		if (formData.skills.includes(newSkill)) return // return if skill already exists
+		setFormData((prevState) => ({
+			...prevState,
+			skills: [...prevState.skills, newSkill],
+		}))
+		e.target.value = '' // Reset input value
+	}
+	const handleDeleteSkill = (skillName) => {
+		setFormData((prevState) => {
+			const newSkills = prevState.skills.filter((skill) => skill !== skillName)
+			return { ...prevState, skills: [...newSkills] }
+
+		})
+	}
 	// Certificates
 	const handleCertificateChange = (e, id) => {
 		const { name, value } = e.target
@@ -238,7 +224,7 @@ const Form = ({ formData, setFormData }) => {
 			</div>
 			<div className="form">
 				<h2>Skills</h2>
-				<textarea name="skills" placeholder='Add Skills separated by ","'></textarea>
+				<Skills skills={formData} handleDeleteSkill={handleDeleteSkill} handleAddSkill={handleAddSkill} />
 			</div>
 			<div className="form">
 				<h2>Certificates</h2>
