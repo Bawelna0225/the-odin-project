@@ -10,6 +10,7 @@ import { Hobbies } from './components/Hobbies'
 import { Links } from './components/Links'
 
 const Form = ({ formData, setFormData }) => {
+	// Personal & Contact Data
 	const handlePersonalDataChange = (e) => {
 		const { name, value } = e.target
 		setFormData((prevData) => ({
@@ -18,7 +19,6 @@ const Form = ({ formData, setFormData }) => {
 		}))
 	}
 	// Experience
-	// Hobbies
 	const handleExperienceChange = (e, id) => {
 		const { name, value } = e.target
 
@@ -102,7 +102,6 @@ const Form = ({ formData, setFormData }) => {
 			})
 			return { ...prevState, languages: [...newLanguages] }
 		})
-		console.log(formData.languages)
 	}
 	const handleAddLanguage = () => {
 		setFormData((prevState) => ({
