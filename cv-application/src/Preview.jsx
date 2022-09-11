@@ -5,8 +5,7 @@ export const Preview = ({ formData }) => {
 		<div>
 			<h2>Preview</h2>
 			<div className="preview">
-				{formData.firstName}
-				{formData.lastName}
+				{formData.firstName} {formData.lastName}
 				{formData.dateOfBirth}
 				{formData.placeOfBirth}
 				{formData.personalDescription}
