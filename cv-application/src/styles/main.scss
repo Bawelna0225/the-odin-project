@@ -5,16 +5,18 @@
 }
 .App {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	padding-inline: 50px;
 	padding-block: 50px;
 }
 .forms {
+	height: 90vh;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	flex-direction: column;
 	gap: 100px;
+	overflow-y: scroll;
 }
 form,
 .form {
@@ -77,3 +79,4 @@ form,
 		}
 	}
 }
+@import './preview'

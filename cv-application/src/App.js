@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+import emptyAvatar from './emptyAvatar.png'
 
 import Form from './Form'
 import { Preview } from './Preview'
@@ -7,6 +8,7 @@ import './styles/main.css'
 
 function App() {
 	const [formData, setFormData] = useState({
+		photo: emptyAvatar,
 		firstName: '',
 		lastName: '',
 		dateOfBirth: '',

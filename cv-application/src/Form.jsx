@@ -11,8 +11,27 @@ import { Links } from './components/Links'
 
 const Form = ({ formData, setFormData }) => {
 	// Personal & Contact Data
+	const handlePictureChange = (e) => {
+		const { name } = e.target
+		const file = e.target.files[0]
+		if (!file) return
+
+		const reader = new FileReader()
+		reader.onload = () => {
+			setFormData((prevState) => ({
+				...prevState,
+				[name]: reader.result,
+			}))
+		}
+		reader.readAsDataURL(file)
+	}
 	const handlePersonalDataChange = (e) => {
-		const { name, value } = e.target
+		const { name, value, type } = e.target
+		console.log(type)
+		if (type === 'file') {
+			handlePictureChange(e)
+			return
+		}
 		setFormData((prevData) => ({
 			...prevData,
 			[name]: value,

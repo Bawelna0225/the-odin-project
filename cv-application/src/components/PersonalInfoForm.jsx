@@ -5,6 +5,7 @@ export const PersonalInfoForm = ({handlePersonalDataChange, personalData}) => {
 		<div>
 			<form>
 				<h2>Personal Info</h2>
+				<input type="file" name='photo' onChange={(e) => handlePersonalDataChange(e)}/>
 				<input name="firstName" type="text" onChange={(e) => handlePersonalDataChange(e)} value={personalData.firstName} placeholder="First Name" />
 				<input name="lastName" type="text" onChange={(e) => handlePersonalDataChange(e)} value={personalData.lastName} placeholder="Last Name" />
 				<input name="dateOfBirth" type="date" onChange={(e) => handlePersonalDataChange(e)} value={personalData.dateOfBirth} placeholder="Date Of Birth" />
