@@ -1,0 +1,17 @@
+@media (max-width: 1400px) {
+    .App {
+        flex-direction: column-reverse;
+        gap: 0;
+    }
+    .form {
+        width: 90%;
+    }
+    .preview-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-height: 100vh;
+
+    }
+}

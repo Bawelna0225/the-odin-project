@@ -8,6 +8,7 @@
 	justify-content: space-around;
 	padding-inline: 50px;
 	padding-block: 50px;
+	background-color: #fff;
 }
 .forms {
 	height: 90vh;
@@ -18,8 +19,8 @@
 	gap: 100px;
 	overflow-y: scroll;
 }
-form,
 .form {
+	padding: 20px;
 	display: flex;
 	flex-direction: column;
 	width: 500px;
@@ -31,6 +32,16 @@ form,
 	button {
 		padding: 10px 15px;
 		cursor: pointer;
+		background-color: rgb(32, 210, 106);
+		color: #fff;
+		font-weight: bold;
+		border: none;
+		&:hover {
+			filter: brightness(90%);
+		}
+		&.delete {
+			background-color: rgb(151, 28, 28);
+		}
 	}
 	textarea {
 		padding: 10px;
@@ -79,4 +90,5 @@ form,
 		}
 	}
 }
-@import './preview'
+@import './preview';
+@import './media';

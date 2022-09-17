@@ -14,7 +14,7 @@ const SingleLanguage = ({ id, language, onChange, onDelete }) => {
 				<option value="C1">C1</option>
 				<option value="C2">C2</option>
 			</select>
-			<button onClick={() => onDelete(id)}>Delete</button>
+			<button className='delete' onClick={() => onDelete(id)}>Delete</button>
 		</>
 	)
 }

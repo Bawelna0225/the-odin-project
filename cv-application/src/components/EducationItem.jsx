@@ -8,7 +8,7 @@ const EducationItem = ({ id, item, onChange, onDelete }) => {
             <input onChange={(e) => onChange(e, id)} type="text" name="degree" placeholder="Degree (ex. Bachelor, Master)" value={item.degree}></input>
             <input onChange={(e) => onChange(e, id)} type="text" name="field" placeholder="Field (ex. IT)" value={item.field}></input>
             <input onChange={(e) => onChange(e, id)} type="text" name="university" placeholder="University" value={item.university}></input>
-			<button onClick={() => onDelete(id)}>Delete</button>
+			<button className='delete' onClick={() => onDelete(id)}>Delete</button>
 		</>
 	)
 }

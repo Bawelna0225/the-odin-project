@@ -9,6 +9,7 @@
   justify-content: space-around;
   padding-inline: 50px;
   padding-block: 50px;
+  background-color: #fff;
 }
 
 .forms {
@@ -21,25 +22,31 @@
   overflow-y: scroll;
 }
 
-form,
 .form {
+  padding: 20px;
   display: flex;
   flex-direction: column;
   width: 500px;
   gap: 10px;
 }
-form input,
-form select,
 .form input,
 .form select {
   padding: 10px;
 }
-form button,
 .form button {
   padding: 10px 15px;
   cursor: pointer;
+  background-color: rgb(32, 210, 106);
+  color: #fff;
+  font-weight: bold;
+  border: none;
 }
-form textarea,
+.form button:hover {
+  filter: brightness(90%);
+}
+.form button.delete {
+  background-color: rgb(151, 28, 28);
+}
 .form textarea {
   padding: 10px;
   height: 150px;
@@ -82,64 +89,64 @@ form textarea,
 }
 
 .hobbies .tag:nth-child(1) {
-  background-color: rgb(149, 21, 127);
+  background-color: rgb(81, 16, 121);
 }
 .hobbies .tag:nth-child(2) {
-  background-color: rgb(95, 84, 23);
+  background-color: rgb(18, 31, 155);
 }
 .hobbies .tag:nth-child(3) {
-  background-color: rgb(29, 140, 172);
+  background-color: rgb(57, 194, 94);
 }
 .hobbies .tag:nth-child(4) {
-  background-color: rgb(165, 18, 117);
+  background-color: rgb(175, 126, 31);
 }
 .hobbies .tag:nth-child(5) {
-  background-color: rgb(164, 24, 72);
+  background-color: rgb(186, 39, 19);
 }
 .hobbies .tag:nth-child(6) {
-  background-color: rgb(45, 56, 123);
+  background-color: rgb(70, 192, 46);
 }
 .hobbies .tag:nth-child(7) {
-  background-color: rgb(121, 51, 117);
+  background-color: rgb(68, 178, 74);
 }
 .hobbies .tag:nth-child(8) {
-  background-color: rgb(95, 54, 8);
+  background-color: rgb(157, 103, 163);
 }
 .hobbies .tag:nth-child(9) {
-  background-color: rgb(163, 132, 45);
+  background-color: rgb(148, 95, 181);
 }
 .hobbies .tag:nth-child(10) {
-  background-color: rgb(31, 194, 4);
+  background-color: rgb(118, 166, 89);
 }
 .hobbies .tag:nth-child(11) {
-  background-color: rgb(161, 177, 103);
+  background-color: rgb(10, 53, 130);
 }
 .hobbies .tag:nth-child(12) {
-  background-color: rgb(113, 199, 190);
+  background-color: rgb(184, 56, 188);
 }
 .hobbies .tag:nth-child(13) {
-  background-color: rgb(111, 124, 41);
+  background-color: rgb(17, 144, 77);
 }
 .hobbies .tag:nth-child(14) {
-  background-color: rgb(149, 78, 8);
+  background-color: rgb(195, 33, 82);
 }
 .hobbies .tag:nth-child(15) {
-  background-color: rgb(52, 61, 179);
+  background-color: rgb(23, 76, 162);
 }
 .hobbies .tag:nth-child(16) {
-  background-color: rgb(200, 154, 27);
+  background-color: rgb(59, 186, 41);
 }
 .hobbies .tag:nth-child(17) {
-  background-color: rgb(182, 125, 57);
+  background-color: rgb(173, 149, 11);
 }
 .hobbies .tag:nth-child(18) {
-  background-color: rgb(163, 174, 172);
+  background-color: rgb(53, 48, 81);
 }
 .hobbies .tag:nth-child(19) {
-  background-color: rgb(188, 95, 92);
+  background-color: rgb(62, 131, 83);
 }
 .hobbies .tag:nth-child(20) {
-  background-color: rgb(162, 124, 55);
+  background-color: rgb(26, 106, 185);
 }
 
 .preview-container {
@@ -285,4 +292,21 @@ form textarea,
 }
 .preview .links p {
   font-weight: bold;
+}
+
+@media (max-width: 1400px) {
+  .App {
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+  .form {
+    width: 90%;
+  }
+  .preview-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: 100vh;
+  }
 }/*# sourceMappingURL=main.css.map */

@@ -8,7 +8,7 @@ const ExperienceItem = ({ id, item, onChange, onDelete }) => {
             <input onChange={(e) => onChange(e, id)} type="text" name="jobPosition" placeholder="Position" value={item.jobPosition}></input>
             <input onChange={(e) => onChange(e, id)} type="text" name="companyName" placeholder="Company Name" value={item.companyName}></input>
             <textarea onChange={(e) => onChange(e, id)} type="text" name="workDescription" placeholder="Description" value={item.workDescription}></textarea>
-			<button onClick={() => onDelete(id)}>Delete</button>
+			<button className='delete' onClick={() => onDelete(id)}>Delete</button>
 		</>
 	)
 }
