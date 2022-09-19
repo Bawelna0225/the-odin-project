@@ -12,6 +12,29 @@
   background-color: #fff;
 }
 
+.github-link {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  translate: -50% 0%;
+  height: 20px;
+  background-color: rgb(33, 33, 33);
+  padding: 10px;
+  border-radius: 0px 0px 8px 8px;
+  transition: all 300ms linear;
+  opacity: 0.9;
+}
+.github-link svg {
+  fill: white;
+}
+.github-link:hover {
+  height: 40px;
+  opacity: 1;
+}
+
 .forms {
   height: 90vh;
   display: flex;
@@ -89,64 +112,64 @@
 }
 
 .hobbies .tag:nth-child(1) {
-  background-color: rgb(81, 16, 121);
+  background-color: rgb(121, 5, 127);
 }
 .hobbies .tag:nth-child(2) {
-  background-color: rgb(18, 31, 155);
+  background-color: rgb(53, 66, 153);
 }
 .hobbies .tag:nth-child(3) {
-  background-color: rgb(57, 194, 94);
+  background-color: rgb(136, 63, 90);
 }
 .hobbies .tag:nth-child(4) {
-  background-color: rgb(175, 126, 31);
+  background-color: rgb(57, 101, 108);
 }
 .hobbies .tag:nth-child(5) {
-  background-color: rgb(186, 39, 19);
+  background-color: rgb(109, 98, 120);
 }
 .hobbies .tag:nth-child(6) {
-  background-color: rgb(70, 192, 46);
+  background-color: rgb(92, 139, 3);
 }
 .hobbies .tag:nth-child(7) {
-  background-color: rgb(68, 178, 74);
+  background-color: rgb(191, 59, 174);
 }
 .hobbies .tag:nth-child(8) {
-  background-color: rgb(157, 103, 163);
+  background-color: rgb(15, 140, 180);
 }
 .hobbies .tag:nth-child(9) {
-  background-color: rgb(148, 95, 181);
+  background-color: rgb(153, 95, 151);
 }
 .hobbies .tag:nth-child(10) {
-  background-color: rgb(118, 166, 89);
+  background-color: rgb(43, 135, 54);
 }
 .hobbies .tag:nth-child(11) {
-  background-color: rgb(10, 53, 130);
+  background-color: rgb(45, 58, 116);
 }
 .hobbies .tag:nth-child(12) {
-  background-color: rgb(184, 56, 188);
+  background-color: rgb(188, 196, 84);
 }
 .hobbies .tag:nth-child(13) {
-  background-color: rgb(17, 144, 77);
+  background-color: rgb(53, 41, 29);
 }
 .hobbies .tag:nth-child(14) {
-  background-color: rgb(195, 33, 82);
+  background-color: rgb(163, 120, 112);
 }
 .hobbies .tag:nth-child(15) {
-  background-color: rgb(23, 76, 162);
+  background-color: rgb(31, 84, 137);
 }
 .hobbies .tag:nth-child(16) {
-  background-color: rgb(59, 186, 41);
+  background-color: rgb(38, 93, 124);
 }
 .hobbies .tag:nth-child(17) {
-  background-color: rgb(173, 149, 11);
+  background-color: rgb(178, 70, 30);
 }
 .hobbies .tag:nth-child(18) {
-  background-color: rgb(53, 48, 81);
+  background-color: rgb(64, 197, 5);
 }
 .hobbies .tag:nth-child(19) {
-  background-color: rgb(62, 131, 83);
+  background-color: rgb(8, 31, 34);
 }
 .hobbies .tag:nth-child(20) {
-  background-color: rgb(26, 106, 185);
+  background-color: rgb(72, 80, 128);
 }
 
 .preview-container {
