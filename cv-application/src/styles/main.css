@@ -112,64 +112,64 @@
 }
 
 .hobbies .tag:nth-child(1) {
-  background-color: rgb(121, 5, 127);
+  background-color: rgb(61, 100, 139);
 }
 .hobbies .tag:nth-child(2) {
-  background-color: rgb(53, 66, 153);
+  background-color: rgb(95, 77, 168);
 }
 .hobbies .tag:nth-child(3) {
-  background-color: rgb(136, 63, 90);
+  background-color: rgb(85, 2, 106);
 }
 .hobbies .tag:nth-child(4) {
-  background-color: rgb(57, 101, 108);
+  background-color: rgb(39, 36, 2);
 }
 .hobbies .tag:nth-child(5) {
-  background-color: rgb(109, 98, 120);
+  background-color: rgb(191, 95, 23);
 }
 .hobbies .tag:nth-child(6) {
-  background-color: rgb(92, 139, 3);
+  background-color: rgb(70, 53, 101);
 }
 .hobbies .tag:nth-child(7) {
-  background-color: rgb(191, 59, 174);
+  background-color: rgb(166, 151, 58);
 }
 .hobbies .tag:nth-child(8) {
-  background-color: rgb(15, 140, 180);
+  background-color: rgb(23, 141, 171);
 }
 .hobbies .tag:nth-child(9) {
-  background-color: rgb(153, 95, 151);
+  background-color: rgb(74, 97, 44);
 }
 .hobbies .tag:nth-child(10) {
-  background-color: rgb(43, 135, 54);
+  background-color: rgb(129, 89, 14);
 }
 .hobbies .tag:nth-child(11) {
-  background-color: rgb(45, 58, 116);
+  background-color: rgb(98, 116, 64);
 }
 .hobbies .tag:nth-child(12) {
-  background-color: rgb(188, 196, 84);
+  background-color: rgb(196, 182, 11);
 }
 .hobbies .tag:nth-child(13) {
-  background-color: rgb(53, 41, 29);
+  background-color: rgb(87, 135, 158);
 }
 .hobbies .tag:nth-child(14) {
-  background-color: rgb(163, 120, 112);
+  background-color: rgb(152, 184, 33);
 }
 .hobbies .tag:nth-child(15) {
-  background-color: rgb(31, 84, 137);
+  background-color: rgb(38, 23, 40);
 }
 .hobbies .tag:nth-child(16) {
-  background-color: rgb(38, 93, 124);
+  background-color: rgb(146, 8, 194);
 }
 .hobbies .tag:nth-child(17) {
-  background-color: rgb(178, 70, 30);
+  background-color: rgb(7, 92, 164);
 }
 .hobbies .tag:nth-child(18) {
-  background-color: rgb(64, 197, 5);
+  background-color: rgb(1, 62, 159);
 }
 .hobbies .tag:nth-child(19) {
-  background-color: rgb(8, 31, 34);
+  background-color: rgb(37, 156, 58);
 }
 .hobbies .tag:nth-child(20) {
-  background-color: rgb(72, 80, 128);
+  background-color: rgb(129, 43, 32);
 }
 
 .preview-container {
@@ -182,6 +182,7 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   aspect-ratio: 1/1.4142;
   overflow: auto;
+  overflow-x: hidden;
   padding: 8.4%;
   text-align: center;
   display: flex;
