@@ -6,7 +6,7 @@ const Home = () => {
 	return (
 		<>
 			<section id="home">
-				<img src="https://picsum.photos/1360/1300" alt="" />
+				<img src="https://github.com/Bawelna0225/the-odin-project/blob/master/react-shopping-cart/src/images/pic1.jpg" alt="" />
 				<div>
 					<h1>Lorem ipsum dolor sit amet.</h1>
 					<Link to="/products">
