@@ -1,9 +1,19 @@
+import pic1 from '../images/pic1.jpg'
+import pic2 from '../images/2.jpg'
+import pic3 from '../images/3.jpg'
+import pic4 from '../images/4.jpg'
+import pic5 from '../images/5.jpg'
+import pic6 from '../images/6.jpg'
+import pic7 from '../images/7.jpg'
+import pic8 from '../images/8.jpg'
+import pic9 from '../images/9.jpg'
+import pic10 from '../images/10.jpg'
 export const items = [
 	{
 		id: 1,
 		name: 'Product-1',
 		price: 9.99,
-		img: "../../images/1.jpg",
+		img: pic1,
 		sizes: ['XS', 'S', 'M', 'L', 'XL'],
 		colors: ['Black', 'DarkBlue', 'Blue', 'LightBlue'],
 	},
@@ -11,7 +21,7 @@ export const items = [
 		id: 2,
 		name: 'Product-2',
 		price: 5.99,
-		img: './images/1.jpg',
+		img: pic2,
 		sizes: ['XS', 'S', 'M', 'L', 'XL'],
 		colors: ['DarkRed', 'Maroon', 'FireBrick', 'Red', 'Crimson'],
 	},
@@ -19,7 +29,7 @@ export const items = [
 		id: 3,
 		name: 'Product-3',
 		price: 19.99,
-		img: './images/1.jpg',
+		img: pic3,
 		sizes: ['XS', 'S', 'M', 'L', 'XL'],
 		colors: ['SeaGreen', 'SpringGreen', 'Turquoise', 'Teal', 'SlateBlue', 'RoyalBlue'],
 	},
@@ -27,7 +37,7 @@ export const items = [
 		id: 4,
 		name: 'Product-4',
 		price: 1.99,
-		img: './images/1.jpg',
+		img: pic4,
 		sizes: ['XS', 'S', 'M', 'L', 'XL'],
 		colors: ['red', 'green', 'blue', 'orange'],
 	},
@@ -35,7 +45,7 @@ export const items = [
 		id: 5,
 		name: 'Product-5',
 		price: 14.99,
-		img: './images/1.jpg',
+		img: pic5,
 		sizes: ['XS', 'S', 'M', 'L', 'XL'],
 		colors: ['red', 'green', 'blue', 'orange'],
 	},
@@ -43,7 +53,7 @@ export const items = [
 		id: 6,
 		name: 'Product-6',
 		price: 16.99,
-		img: './images/1.jpg',
+		img: pic6,
 		sizes: ['XS', 'S', 'M', 'L', 'XL'],
 		colors: ['red', 'green', 'blue', 'orange'],
 	},
@@ -51,7 +61,7 @@ export const items = [
 		id: 7,
 		name: 'Product-7',
 		price: 11.99,
-		img: './images/1.jpg',
+		img: pic7,
 		sizes: ['XS', 'S', 'M', 'L', 'XL'],
 		colors: ['red', 'green', 'blue', 'orange'],
 	},
@@ -59,7 +69,7 @@ export const items = [
 		id: 8,
 		name: 'Product-8',
 		price: 18.49,
-		img: 'https://picsum.photos/362/301',
+		img: pic8,
 		sizes: ['XS', 'S', 'M', 'L', 'XL'],
 		colors: ['red', 'green', 'blue', 'orange'],
 	},
@@ -67,32 +77,16 @@ export const items = [
 		id: 9,
 		name: 'Product-9',
 		price: 21.99,
-		img: 'https://picsum.photos/361/304',
+		img: pic9,
 		sizes: ['XS', 'S', 'M', 'L', 'XL'],
 		colors: ['red', 'green', 'blue', 'orange'],
 	},
 	{
 		id: 10,
 		name: 'Product-10',
-		price: 24.99,
-		img: 'https://picsum.photos/362/300',
-		sizes: ['XS', 'S', 'M', 'L', 'XL'],
-		colors: ['red', 'green', 'blue', 'orange'],
-	},
-	{
-		id: 11,
-		name: 'Product-11',
-		price: 29.99,
-		img: 'https://picsum.photos/361/304',
-		sizes: ['XS', 'S', 'M', 'L', 'XL'],
-		colors: ['red', 'green', 'blue', 'orange'],
-	},
-	{
-		id: 12,
-		name: 'Product-12',
 		price: 0.99,
-		img: 'https://picsum.photos/362/300',
+		img: pic10,
 		sizes: ['XS', 'S', 'M', 'L', 'XL'],
 		colors: ['red', 'green', 'blue', 'orange'],
-	},
+	}
 ]

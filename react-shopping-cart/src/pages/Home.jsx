@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { AiFillStar } from 'react-icons/ai'
+import bigImg from '../images/bigimg.jpg'
 
 const Home = () => {
 	return (
 		<>
 			<section id="home">
-				<img src="https://github.com/Bawelna0225/the-odin-project/blob/master/react-shopping-cart/src/images/pic1.jpg" alt="" />
+				<img src={bigImg} alt="" />
 				<div>
 					<h1>Lorem ipsum dolor sit amet.</h1>
 					<Link to="/products">
